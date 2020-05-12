@@ -454,10 +454,16 @@ echo "<script>alert('Data not inserted');</script>";
           <input type="text" class="input1s" name="email" id="mail" autofill="off" onkeyup="emailverify(this.value)"  required>
           <label for="mail" class="label-names">Email</label>
         </div>
+
+
+
         <div class="form"><div class="errp" id='passajax'><?php echo$passworderr;?></div>
           <input type="password" class="input1s" id="pass" name="password" autofill="off" onkeyup="passverify(this.value)" required>
           <label for="pass" class="label-names">Password</label>
         </div>
+
+
+
         <div class="form"><div class="errcp" id='passcheckajax'></div>
           <input type="password" class="input1s" name="cpassword" id="cpass" autofill="off" onkeyup="passcheck(this.value,password.value)" required>
           <label for="cpass" class="label-names">Confirm Password</label>
@@ -478,7 +484,7 @@ echo "<script>alert('Data not inserted');</script>";
             <select class="inputsel" name="college" id="college" autofill="off" required>
               <option name="college" value="college1">College1</option>
               <option name="college" value="college2">college2</option>
-            </select><?php echo$nameerr;?>
+            </select><?php echo$depterr;?>
             <label for="departments" class="label-college">College</label>
           </div>
           <div class="form">

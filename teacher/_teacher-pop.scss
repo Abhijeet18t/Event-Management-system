@@ -1,0 +1,320 @@
+* {
+	box-sizing: border-box;
+
+	input:focus {
+		outline: none;
+	}
+}	
+#teacher-pop {
+		display: block;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		background-color: rgba($color: #000000, $alpha: 0.7);
+		z-index: 20;
+
+		.simplebar-scrollbar::before {
+			z-index: 333;
+			background-color: $royal-blue;
+			width: 4px;
+			opacity: 1;
+		}
+
+		.simplebar-track {
+			margin: 10px 0;
+		}
+
+		.first {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 380px;
+			height: 550px;
+			background-color: $back-blue;
+			border-radius: 20px;
+			@include flexcenter-around(column);
+
+			#next {
+				cursor: pointer;
+				position: absolute;
+				left: 88%;
+				top: 89%;
+				border-radius: 50%;
+				background-color: $back-blue;
+				border: none;
+				width: 40px;
+				height: 40px;
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+
+				svg{
+					@include flexcenter;
+					display: block;
+					width: 40px;
+					height: 40px;
+					margin: 0;
+					padding: 0;
+
+					
+				}
+			}
+
+			h2 {
+				font-family: "bebas neue";
+				font-weight: 400;
+				font-size: 32px;
+				margin: 0;
+				padding: 0;
+			}
+
+			.teacher-img {
+				width: 140px;
+				height: 140px;
+				border-radius: 50%;
+				box-shadow: 0px 0px 15px $blue-green;
+			}
+
+			.file-browse {
+				input[type="file"] {
+					display: none;
+				}
+
+				.browse-label {
+					display: block;
+					text-align: center;
+					width: 285px;
+					height: 48px;
+					cursor: pointer;
+					font-family: "oswald";
+					font-weight: 400;
+					font-size: 1em;
+					color: #fff;
+					background-color: $royal-blue;
+					padding: 0.7em 1em;
+					border-radius: 50px;
+					transition: box-shadow 0.2s ease-in-out;
+
+					&:hover {
+						box-shadow: 0px 0px 8px $blue-green;
+					}
+				}
+			}
+
+			.upload {
+				cursor: pointer;
+				font-family: "oswald";
+				font-weight: 400;
+				font-size: 1em;
+				color: #fff;
+				background-color: $royal-blue;
+				width: 75%;
+				padding: 0.7em 1em;
+				border-radius: 50px;
+				border: none;
+				transition: box-shadow 0.2s ease-in-out;
+
+				&:hover {
+					box-shadow: 0px 0px 8px $blue-green;
+				}
+			}
+
+			.input-number {
+				position: relative;
+				width: 75%;
+
+				input {
+					box-sizing: border-box;
+					text-align: center;
+					width: 100%;
+					height: 40px;
+					border: none;
+					padding: 0 20px;
+					background-color: $back-blue;
+					border-bottom: 2px solid $royal-blue;
+					font-family: "oswald";
+					font-size: 18px;
+					&:focus {
+						outline: none;
+					}
+
+					&:focus + .label-name,
+					&:valid + .label-name {
+						transform: translateY(-165%);
+					}
+				}
+
+				.label-name {
+					font-family: "montserrat";
+					font-weight: 300;
+					font-size: 16px;
+					position: absolute;
+					left: 28%;
+					top: 25%;
+					pointer-events: none;
+					transition: transform 0.2s ease-in-out;
+				}
+			}
+		}
+
+		#second {
+			display: none;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 380px;
+			height: 550px;
+			background-color: $back-blue;
+			border-radius: 20px;
+			text-align: center;
+
+			#submit{
+				box-sizing: border-box;
+				width: 70%;
+				height: 40px;
+				border-radius: 50px;
+				border: none;
+				background-color: $royal-blue;
+				color: #fff;
+				font-family: "oswald";
+				font-size: 17px;
+
+			}
+
+			#prev {
+				
+				transform: rotate(-180deg);
+				cursor: pointer;
+				position: absolute;
+				right: 88%;
+				top: 90.5%;
+				background-color: $back-blue;
+				border: none;
+				width: 40px;
+				height: 40px;
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+				border-radius: 50%;
+
+				svg{
+					@include flexcenter;
+					display: block;
+					width: 40px;
+					height: 40px;
+					margin: 0;
+					padding: 0;
+
+					
+				}
+			}
+
+			h2 {
+				text-align: center;
+				line-height: 60px;
+				font-family: "bebas neue";
+				font-weight: 400;
+				font-size: 32px;
+				height: 60px;
+				padding: 0;
+				margin: 0;
+			}
+
+			.input-field-cont {
+				height: 440px;
+				width: 100%;
+
+				.simplebar-offset {
+					padding: 0px 0px 20px 0;
+				}
+
+				.simplebar-content-wrapper {
+					@include flexcenter-around(column);
+				}
+				.simplebar-content {
+					height: 470px;
+					width: 80%;
+				}
+
+				.year-cont {
+					position: relative;
+					box-sizing: border-box;
+					background-color: #fff;
+					width: 100%;
+					margin: 30px 0px;
+					border-radius: 10px;
+
+					.input-yr-name {
+						position: relative;
+						width: 100%;
+						height: 60px;
+						text-align: center;
+						@include flexcenter;
+
+						input {
+							width: 90%;
+							height: 60%;
+							padding: 0 10px;
+							background-color: #fff;
+							border: none;
+							border-bottom: 2px solid $royal-blue;
+							font-family: "oswald";
+							font-size: 18px;
+
+							&:focus + .label-name,
+							&:valid + .label-name {
+								transform: translateY(-150%);
+							}
+						}
+						.label-name {
+							position: absolute;
+							left: 20px;
+							transition: transform 0.2s ease-in-out;
+						}
+					}
+
+					.input-div {
+						height: auto;
+						width: 100%;
+						@include flexcenter-around(column);
+						box-sizing: border-box;
+
+						.inputs {
+							position: relative;
+							width: 100%;
+							height: 85px;
+							@include flexcenter;
+							
+
+							input {
+								width: 90%;
+								height: 50%;
+								padding: 0 10px;
+								background-color: #fff;
+								border: none;
+								border-bottom: 2px solid $royal-blue;
+								font-family: "oswald";
+								font-size: 18px;
+
+								&:focus + .label-name,
+								&:valid + .label-name {
+									transform: translateY(-150%);
+								}
+							}
+
+							.label-name {
+								position: absolute;
+								left: 20px;
+								pointer-events: none;
+								transition: transform 0.2s ease-in-out;
+							}
+						}
+					}
+				}
+			}
+		}
+	}

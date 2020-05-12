@@ -1,0 +1,227 @@
+#first-pop {
+
+  display: none;
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  background-color: rgba($color: #000000, $alpha: .8);
+  color: $main-font;
+
+  .first-card {
+    position: absolute;
+    @include absolute-center;
+    border-radius: 20px;
+    background-color: #fff;
+    width: 800px;
+    height: 70%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    align-items: center;
+    justify-items: center;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 10%;
+      left: 50%;
+      height: 80%;
+      border-right: 2px solid $royal-blue;
+    }
+
+    .first-card-container,
+    .first-card-container2 {
+      background-color: $back-blue;
+      width: 90%;
+      height: 92%;
+      border-radius: 20px;
+    }
+
+    .first-card-container {
+      @include flexcenter-around(column);
+      overflow: hidden;
+      position: relative;
+
+      &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        background-color: $royal-blue;
+        width: 100%;
+        height: 100px;
+        box-shadow: 0 10px 10px -6px $blue-green;
+      }
+
+      h3 {
+        color: #fff;
+        position: relative;
+        top: -20px;
+        display: block;
+        height: 60px;
+        width: 100%;
+        line-height: 60px;
+        text-align: center;
+      }
+
+      .profile-pop {
+        width: 140px;
+        height: 140px;
+        border-radius: 50%;
+        box-shadow: 0px 0px 15px $blue-green;
+      }
+
+      .file-browse {
+        input[type="file"] {
+          display: none;
+        }
+
+        .browse-label {
+          display: block;
+          text-align: center;
+          width: 255px;
+          height: 25px;
+          cursor: pointer;
+          font-family: "oswald";
+          font-weight: 400;
+          font-size: 1em;
+          color: #fff;
+          background-color: $royal-blue;
+          padding: 0.7em 1em;
+          border-radius: 50px;
+          transition: box-shadow 0.2s ease-in-out;
+
+          &:hover {
+            box-shadow: 0px 0px 8px $blue-green;
+          }
+        }
+      }
+
+      .upload {
+        cursor: pointer;
+        font-family: "oswald";
+        font-weight: 400;
+        font-size: 1em;
+        color: #fff;
+        background-color: $royal-blue;
+        width: 80%;
+        padding: 0.7em 1em;
+        border-radius: 50px;
+        border: none;
+        transition: box-shadow 0.2s ease-in-out;
+
+        &:hover {
+          box-shadow: 0px 0px 8px $blue-green;
+        }
+      }
+    }
+
+    .first-card-container2 {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 100px 300px 60px;
+      grid-template-areas:
+        "card-head"
+        "dept-inputs";
+
+      overflow: hidden;
+      text-align: center;
+
+      &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        background-color: $royal-blue;
+        width: 100%;
+        height: 100px;
+        box-shadow: 0 10px 10px -6px $blue-green;
+      }
+
+      .card-head {
+        color: #fff;
+        grid-area: card-head;
+        line-height: 60px;
+        text-align: center;
+        z-index: 1;
+      }
+
+      .dept-inputs {
+        grid-area: dept-inputs;
+
+        .simplebar-wrapper {
+          height: 300px;
+        }
+
+        .simplebar-offset {
+          padding: 20px 20px 20px 20px;
+        }
+
+        .input-dept {
+          position: relative;
+          width: 100%;
+          text-align: center;
+
+          input:focus + .label-name,
+          input:valid + .label-name {
+            transform: translateY(-160%);
+          }
+
+          input {
+            font-family: "montserrat";
+            font-weight: 500;
+            font-size: 16px;
+            padding: 0 10px;
+            margin-top: 50px;
+            width: 90%;
+            height: 30px;
+            border: none;
+            border-bottom: 2px solid $royal-blue;
+            background-color: $back-blue;
+          }
+          input:focus {
+            outline: none;
+          }
+
+          .label-name {
+            opacity: 0.7;
+            font-family: "montserrat";
+            font-weight: 600;
+            pointer-events: none;
+            bottom: 10%;
+            left: 10px;
+            position: absolute;
+            transition: transform 0.2s ease-out;
+          }
+        }
+      }
+
+      .submit {
+        color: #fff;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+        font-family: "oswald";
+        font-weight: 400;
+        font-size: 1em;
+        height: 50px;
+        width: 80%;
+        justify-self: center;
+        border: none;
+        border-radius: 50px;
+        background-color: $royal-blue;
+        transition: box-shadow 0.2s ease-in-out;
+
+        &:hover {
+          box-shadow: 0px 0px 8px $blue-green;
+        }
+      }
+    }
+  }
+}

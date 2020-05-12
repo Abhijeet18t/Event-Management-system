@@ -1,0 +1,200 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "montserrat";
+	font-weight: 500;
+}
+
+#login-pop {
+	display: none;
+	position: fixed;
+	width: 100%;
+	height: 100vh;
+	top: 0;
+	left: 0;
+	background-color: rgba($color: #000000, $alpha: 0.7);
+	z-index: 9999;
+
+	#close-login {
+		cursor: pointer;
+		position: absolute;
+		width: 30px;
+		height: 30px;
+		border-radius: 50%;
+		border: none;
+		right: 15px;
+		top: 15px;
+		padding: 0;
+		margin: 0;
+		@include flexcenter;
+		box-shadow: 3px 3px 6px #d1d3d6, -3px -3px 6px #ffffff;
+
+		&:hover svg {
+			transform: rotate(90deg);
+		}
+
+		svg {
+			stroke: $main-font;
+			transition: all 0.2s ease-in-out;
+		}
+	}
+
+	.login-card {
+		position: relative;
+		@include absolute-center;
+		background-color: $back-blue;
+		width: 350px;
+		height: 480px;
+		border-radius: 20px;
+		color: $main-font;
+		overflow: hidden;
+
+		&::after {
+			content: "";
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			background-color: $main-button;
+			clip-path: circle(18% at 0% 0%);
+		}
+
+		.login-head {
+			width: 100%;
+			height: 90px;
+			line-height: 90px;
+			text-align: center;
+			font-weight: 600;
+		}
+
+		.login-details {
+			position: relative;
+			width: 78%;
+			height: 280px;
+			@include flexcenter-around(column);
+			@include horizontal-center;
+			overflow: hidden;
+
+			.input {
+				position: relative;
+				width: 100%;
+				height: 50px;
+				box-sizing: border-box;
+
+				input {
+					width: 100%;
+					height: 100%;
+					padding: 0px 1px;
+					padding-top: 8px;
+					font-family: "montserrat";
+					font-weight: 400;
+					font-size: 16px;
+					border: none;
+					color: $main-font;
+					background-color: $back-blue !important;
+
+					&:required {
+						box-shadow: none;
+					}
+					&:focus {
+						outline: none;
+					}
+
+					&:focus + .label-name .content-name,
+					&:valid + .label-name .content-name {
+						transform: translateY(-180%);
+					}
+
+					&:focus + .label-name::after,
+					&:valid + .label-name::after {
+						transform: translateX(0%);
+					}
+				}
+
+				label {
+					position: absolute;
+					pointer-events: none;
+					left: 0px;
+					top: 0%;
+					width: 100%;
+					height: 100%;
+					border-bottom: 1px solid $royal-blue;
+
+					&::after {
+						content: "";
+						position: absolute;
+						width: 100%;
+						height: 2px;
+						left: 0px;
+						background: $gradient-one; /* fallback for old browsers */
+						border-radius: 10px;
+						background: -webkit-linear-gradient(
+							to right,
+							$gradient-one,
+							$royal-blue
+						); /* Chrome 10-25, Safari 5.1-6 */
+						background: linear-gradient(
+							to right,
+							$gradient-one,
+							$royal-blue
+						); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+						bottom: -1px;
+						transform: translateX(-110%);
+
+						transition: transform 0.2s ease-in-out;
+					}
+
+					.content-name {
+						position: absolute;
+						top: 40%;
+						transition: transform 0.2s ease-in-out;
+					}
+				}
+			}
+
+			.login-btn {
+				cursor: pointer;
+				width: 100%;
+				height: 50px;
+				border-radius: 50px;
+				border: none;
+				color: #fff;
+				background: linear-gradient(
+					120deg,
+					$gradient-one,
+					$royal-blue,
+					$gradient-one
+				);
+				transition: all 0.2s ease-in-out;
+				background-size: 200%;
+
+				&:hover {
+					background-position: right;
+				}
+			}
+		}
+
+		.forgot-signup {
+			font-size: 15px;
+			width: 100%;
+			height: 90px;
+			@include flexcenter-around(column);
+
+			#have-signup-btn {
+				a {
+					color: $royal-blue;
+					font-weight: 600;
+					text-decoration: none;
+					border-radius: 40px;
+					text-align: center;
+					line-height: 35px;
+					display: inline-block;
+					background-color: $back-blue;
+				}
+			}
+		}
+	}
+}

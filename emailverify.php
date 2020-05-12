@@ -4,7 +4,7 @@
 if(!empty($_GET['code']) && isset($_GET['code']))
 {
 
-$code="$_GET['code']";
+$code=$_GET['code'];
 include 'dbhusers.php';
 $sql="SELECT * FROM `users` WHERE `acticode`='$code';";
 $result=mysqli_query($conn,$sql);

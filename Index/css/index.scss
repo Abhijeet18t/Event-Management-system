@@ -6,6 +6,24 @@
 @import "signup-card2";
 @import "signup-card3";
 
+.error {
+	position: absolute;
+	top: 110%;
+	width: 100%;
+	text-align: center;
+	font-size: 13px;
+	color: red;
+}
+
+.error-pass {
+	position: absolute;
+	top: 105%;
+	width: 100%;
+	text-align: center;
+	font-size: 13px;
+	color: red;
+}
+
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,

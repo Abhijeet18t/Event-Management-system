@@ -579,6 +579,26 @@ echo "<script>alert('Data not inserted');</script>";
 
     <script src="js/select.js"></script>
     <script src="js/index.js"></script>
+    <script>
+    const body = document.getElementById("body")
+    const loginmodal = document.getElementById("login-pop")
+    const signupmodal = document.getElementById("signup-pop")
+    const signupcard1 = document.getElementById("signup-card-1")
+
+
+    //login onload start
+    body.onload = function() {
+        loginmodal.style.display = "block"
+    }
+    //login onload end
+
+    //signup onload start
+    body.onload = function() {
+        signupmodal.style.display = "block"
+        signupcard1.style.display = "block"
+    }
+    //signup onload end
+    </script>
 
     <!------------********** JAVASCRIPT-END **********------------>
 </body>

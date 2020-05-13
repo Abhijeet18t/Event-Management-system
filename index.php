@@ -4,99 +4,92 @@ include 'dbhusers.php';
 ?>
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<title></title>
-		<meta name="description" content="" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;700;800;900&family=Oswald:wght@300;400&display=swap"
-			rel="stylesheet"
-		/>
-		<script
-			src="https://kit.fontawesome.com/bbc774f30a.js"
-			crossorigin="anonymous"
-		></script>
-		<link rel="stylesheet" href="css/index.css" />
-	</head>
 
-	<body id="body">
-		<main class="main-content">
-			<section class="hero">
-				<img
-					src="images/hero-background.jpg"
-					alt=""
-					class="background"
-				/>
-				<div class="nav">
-					<a class="about" href="#">ABOUT</a>
-					<a href="#">CONTACT</a>
-					<a id="login-btn" href="#">LOGIN</a>
-					<a id="signup-btn" class="signup-btn" href="#">SIGNUP</a>
-				</div>
-				<div class="header">
-					<h1>
-						Manage <br />
-						your workflow
-					</h1>
-				</div>
-				<div class="lines">
-					<p>
-						get the most out of your day with our services <br />
-						and improve your workflow.
-					</p>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;700;800;900&family=Oswald:wght@300;400&display=swap"
+        rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/bbc774f30a.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/index.css" />
+</head>
 
-					<a class="register" href="#">REGISTER</a>
-				</div>
-				<div class="svg"></div>
-			</section>
+<body id="body">
+    <main class="main-content">
+        <section class="hero">
+            <img src="images/hero-background.jpg" alt="" class="background" />
+            <div class="nav">
+                <a class="about" href="#">ABOUT</a>
+                <a href="#">CONTACT</a>
+                <a id="login-btn" href="#">LOGIN</a>
+                <a id="signup-btn" class="signup-btn" href="#">SIGNUP</a>
+            </div>
+            <div class="header">
+                <h1>
+                    Manage <br />
+                    your workflow
+                </h1>
+            </div>
+            <div class="lines">
+                <p>
+                    get the most out of your day with our services <br />
+                    and improve your workflow.
+                </p>
 
-			<section class="benefits">
-				<div class="head">
-					<h1>What you get</h1>
-					<p>using our services provides you</p>
-				</div>
-				<div class="container" data-scroll>
-					<div class="card">
-						<div class="border"></div>
-						<div class="img"></div>
-						<div class="content">
-							<h4>BENEFIT 1</h4>
-							<p>
-								Lorem ipsum dolor sit amet consectetur
-								adipisicing elit. sed nisi voluptates eum.
-							</p>
-						</div>
-					</div>
-					<div class="card">
-						<div class="border"></div>
-						<div class="img"></div>
-						<div class="content">
-							<h4>BENEFIT 2</h4>
-							<p>
-								Lorem ipsum dolor sit amet consectetur
-								adipisicing elit. sed nisi voluptates eum.
-							</p>
-						</div>
-					</div>
-					<div class="card">
-						<div class="border"></div>
-						<div class="img"></div>
-						<div class="content">
-							<h4>BENEFIT 3</h4>
-							<p>
-								Lorem ipsum dolor sit amet consectetur
-								adipisicing elit. sed nisi voluptates eum.
-							</p>
-						</div>
-					</div>
-				</div>
-			</section>
-		</main>
+                <a class="register" href="#">REGISTER</a>
+            </div>
+            <div class="svg"></div>
+        </section>
 
-        <!------------********** LOGIN-START **********------------>
-        <?php
+        <section class="benefits">
+            <div class="head">
+                <h1>What you get</h1>
+                <p>using our services provides you</p>
+            </div>
+            <div class="container" data-scroll>
+                <div class="card">
+                    <div class="border"></div>
+                    <div class="img"></div>
+                    <div class="content">
+                        <h4>BENEFIT 1</h4>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur
+                            adipisicing elit. sed nisi voluptates eum.
+                        </p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="border"></div>
+                    <div class="img"></div>
+                    <div class="content">
+                        <h4>BENEFIT 2</h4>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur
+                            adipisicing elit. sed nisi voluptates eum.
+                        </p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="border"></div>
+                    <div class="img"></div>
+                    <div class="content">
+                        <h4>BENEFIT 3</h4>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur
+                            adipisicing elit. sed nisi voluptates eum.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!------------********** LOGIN-START **********------------>
+    <?php
     // login
 
 $username=$pass="";
@@ -161,158 +154,122 @@ if(isset($_POST['login'])){
 ?>
 
 
-		<div id="login-pop">
-        <div class="login-card" >
-				<button type='button' id="close-login">
-					<svg
-						role="img"
-						xmlns="http://www.w3.org/2000/svg"
-						width="25px"
-						height="25px"
-						viewBox="0 0 24 24"
-						aria-labelledby="closeIconTitle"
-						stroke="#2329D6"
-						stroke-width="1.7142857142857142"
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						fill="none"
-						color="#2329D6"
-					>
-						<title>Close</title>
-						<path
-							d="M6.34314575 6.34314575L17.6568542 17.6568542M6.34314575 17.6568542L17.6568542 6.34314575"
-						/>
-					</svg>
-                </button>
-                
-				<h2 class="login-head">LOGIN</h2>
-				<form class="login-details" method='POST'>
-                
-                
-					<div class="input">
-                    <div class='error'><?php echo $usererr;?></div>
-						<input
-                            type="text"
-                            name="username"
-							class="input-field"
-							id="email"
-							required
-						/>
-						<label class="label-name" for="email"
-							><span class="content-name"
-								>Email/Username</span
-							></label
-						>
-					</div>
-					<div class="input">
-                    <div class='error'><?php echo $passerr;?></div>
-						<input
-                            type="password"
-                            name="pass"
-							class="input-field"
-							id="pass"
-							required
-							autofill="off"
-						/>
-						<label class="label-name" for="pass"
-							><span class="content-name">Password</span></label
-						>
-					</div>
-                    <button type='submit' class="login-btn"  name='login'>LOGIN</button>
-                    
-</form>
-                
-				<div class="forgot-signup">
-					<p>Forgot password ?</p>
-					<p>
-						Don't have an account
-						<span id="have-signup-btn">
-							<a href="#"> SIGNUP</a></span
-						>
-					</p>
-				</div>
-</div>
+    <div id="login-pop">
+        <div class="login-card">
+            <button type='button' id="close-login">
+                <svg role="img" xmlns="http://www.w3.org/2000/svg" width="25px" height="25px" viewBox="0 0 24 24"
+                    aria-labelledby="closeIconTitle" stroke="#2329D6" stroke-width="1.7142857142857142"
+                    stroke-linecap="round" stroke-linejoin="round" fill="none" color="#2329D6">
+                    <title>Close</title>
+                    <path
+                        d="M6.34314575 6.34314575L17.6568542 17.6568542M6.34314575 17.6568542L17.6568542 6.34314575" />
+                </svg>
+            </button>
 
+            <h2 class="login-head">LOGIN</h2>
+            <form class="login-details" method='POST'>
+
+
+                <div class="input">
+                    <span class='error'><?php echo $usererr;?></span>
+                    <input type="text" name="username" class="input-field" id="email" required />
+                    <label class="label-name" for="email"><span class="content-name">Email/Username</span></label>
+                </div>
+                <div class="input">
+                    <span class='error'><?php echo $passerr;?></span>
+                    <input type="password" name="pass" class="input-field" id="pass" required autofill="off" />
+                    <label class="label-name" for="pass"><span class="content-name">Password</span></label>
+                </div>
+                <button type='submit' class="login-btn" name='login'>LOGIN</button>
+
+            </form>
+
+            <div class="forgot-signup">
+                <p>Forgot password ?</p>
+                <p>
+                    Don't have an account
+                    <span id="have-signup-btn">
+                        <a href="#"> SIGNUP</a></span>
+                </p>
+            </div>
         </div>
 
-        <!------------********** LOGIN-END **********------------>
-        <script>
-//username avail
-function user(name) {
-    if (name.length == 0) {
-        document.getElementById("userajax").innerHTML = "";
-        return;
-    } else {
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("userajax").innerHTML = this.responseText;
-            }
-        };
-        xmlhttp.open("GET", "signupajax/userajax.php?name=" + name, true);
-        xmlhttp.send();
+    </div>
+
+    <!------------********** LOGIN-END **********------------>
+    <script>
+    //username avail
+    function user(name) {
+        if (name.length == 0) {
+            document.getElementById("userajax").innerHTML = "";
+            return;
+        } else {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("userajax").innerHTML = this.responseText;
+                }
+            };
+            xmlhttp.open("GET", "signupajax/userajax.php?name=" + name, true);
+            xmlhttp.send();
+        }
     }
-}
 
-//username avail
-function emailverify(e) {
-    if (e.length == 0) {
-        document.getElementById("emailajax").innerHTML = "";
-        return;
-    } else {
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("emailajax").innerHTML = this.responseText;
-            }
-        };
-        xmlhttp.open("GET", "signupajax/emailajax.php?email=" + e, true);
-        xmlhttp.send();
+    //username avail
+    function emailverify(e) {
+        if (e.length == 0) {
+            document.getElementById("emailajax").innerHTML = "";
+            return;
+        } else {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("emailajax").innerHTML = this.responseText;
+                }
+            };
+            xmlhttp.open("GET", "signupajax/emailajax.php?email=" + e, true);
+            xmlhttp.send();
+        }
     }
-}
 
-//password verify
-function passverify(p) {
-    if (p.length == 0) {
-        document.getElementById("passajax").innerHTML = "";
-        return;
-    } else {
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("passajax").innerHTML = this.responseText;
-            }
-        };
-        xmlhttp.open("GET", "signupajax/passajax.php?pass=" + p, true);
-        xmlhttp.send();
+    //password verify
+    function passverify(p) {
+        if (p.length == 0) {
+            document.getElementById("passajax").innerHTML = "";
+            return;
+        } else {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("passajax").innerHTML = this.responseText;
+                }
+            };
+            xmlhttp.open("GET", "signupajax/passajax.php?pass=" + p, true);
+            xmlhttp.send();
+        }
     }
-}
 
-//password check
-function passcheck(cp,p) {
-  
-    if (cp.length == 0) {
-        document.getElementById("passcheckajax").innerHTML = "";
-        return;
+    //password check
+    function passcheck(cp, p) {
+
+        if (cp.length == 0) {
+            document.getElementById("passcheckajax").innerHTML = "";
+            return;
+        } else {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("passcheckajax").innerHTML = this.responseText;
+                }
+            };
+            xmlhttp.open("GET", "signupajax/passcheckajax.php?pass=" + p + "&cpass=" + cp, true);
+            xmlhttp.send();
+        }
     }
-    
-   else {
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("passcheckajax").innerHTML = this.responseText;
-            }
-        };
-        xmlhttp.open("GET", "signupajax/passcheckajax.php?pass=" + p+"&cpass="+ cp, true);
-        xmlhttp.send();
-    }
-}
+    </script>
 
-
-</script>
-
-  <!--Signup-->
-  <?php
+    <!--Signup-->
+    <?php
        $name=$usernames=$email=$college=$dept=$password=$cpassword=$users="";
        $nameerr=$usernameserr=$emailerr=$collegeerr=$passworderr=$userserr=$depterr="";
         include 'dbhusers.php';
@@ -456,271 +413,174 @@ echo "<script>alert('Data not inserted');</script>";
 
      ?>
 
-		<!------------********** SIGNUP-START **********------------>
+    <!------------********** SIGNUP-START **********------------>
 
-		<form id="signup-pop" method='POST'>
-			<!------------********** SIGNUP-CARD1-START **********------------>
+    <form id="signup-pop" method='POST'>
+        <!------------********** SIGNUP-CARD1-START **********------------>
 
-			<div id="signup-card-1">
-				<button type='button' id="close-signupc1">
-					<svg
-						role="img"
-						xmlns="http://www.w3.org/2000/svg"
-						width="25px"
-						height="25px"
-						viewBox="0 0 24 24"
-						aria-labelledby="closeIconTitle"
-						stroke="#2329D6"
-						stroke-width="1.7142857142857142"
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						fill="none"
-						color="#2329D6"
-					>
-						<title>Close</title>
-						<path
-							d="M6.34314575 6.34314575L17.6568542 17.6568542M6.34314575 17.6568542L17.6568542 6.34314575"
-						/>
-					</svg>
-				</button>
-				<h2 class="signup-head">SIGNUP</h2>
-                
-                <div class="signup-details">
-					<div class="input"><div class='error'><?php echo$nameerr;?></div>
-						<input
-                            type="text"
-                            name="name"
-							class="input-field"
-							id="name"
-							required
-						/>
-						<label class="label-name" for="name"
-							><span class="content-name">Name</span></label
-						>
-					</div>
-					<div class="input"><div class="error" id='userajax'><?php echo$usernameserr;?></div>
-						<input
-                            type="text"
-                            name="usernames"
-							class="input-field"
-                            id="username"
-                            onkeyup="user(this.value)"
-							required
-						/>
-						<label class="label-name" for="username"
-							><span class="content-name">Username</span></label
-						>
-					</div>
-					<div class="input">
-                    <div class="error" id='emailajax'><?php echo$emailerr; ?></div>
-						<input
-                            type="text"
-                            name="email"
-							class="input-field"
-                            id="email"
-                            onkeyup="emailverify(this.value)"
-							required
-						/>
-						<label class="label-name" for="email"
-							><span class="content-name">Email</span></label
-						>
-					</div>
-					<button type='button' id="next">NEXT</button>
-				</div>
-				<div class="haveacc">
-					<p>
-						Already have an account ?
-						<span id="have-login-btn1"><a href="#">LOGIN</a></span>
-					</p>
-				</div>
-				<div class="page-number">
-					<span id="one1">1</span><span id="two1">2</span
-					><span id="three1">3</span>
-				</div>
-			</div>
+        <div id="signup-card-1">
+            <button type='button' id="close-signupc1">
+                <svg role="img" xmlns="http://www.w3.org/2000/svg" width="25px" height="25px" viewBox="0 0 24 24"
+                    aria-labelledby="closeIconTitle" stroke="#2329D6" stroke-width="1.7142857142857142"
+                    stroke-linecap="round" stroke-linejoin="round" fill="none" color="#2329D6">
+                    <title>Close</title>
+                    <path
+                        d="M6.34314575 6.34314575L17.6568542 17.6568542M6.34314575 17.6568542L17.6568542 6.34314575" />
+                </svg>
+            </button>
+            <h2 class="signup-head">SIGNUP</h2>
 
-			<!------------********** SIGNUP-CARD1-END **********------------>
+            <div class="signup-details">
+                <div class="input">
+                    <span class='error'><?php  echo$nameerr;?></span>
+                    <input type="text" name="name" class="input-field" id="name" required />
+                    <label class="label-name" for="name"><span class="content-name">Name</span></label>
+                </div>
+                <div class="input">
+                    <span class="error" id='userajax'><?php echo$usernameserr;?></span>
+                    <input type="text" name="usernames" class="input-field" id="username" onkeyup="user(this.value)"
+                        required />
+                    <label class="label-name" for="username"><span class="content-name">Username</span></label>
+                </div>
+                <div class="input">
+                    <span class="error" id='emailajax'><?php echo$emailerr; ?></span>
+                    <input type="text" name="email" class="input-field" id="email" onkeyup="emailverify(this.value)"
+                        required />
+                    <label class="label-name" for="email"><span class="content-name">Email</span></label>
+                </div>
+                <button type='button' id="next">NEXT</button>
+            </div>
+            <div class="haveacc">
+                <p>
+                    Already have an account ?
+                    <span id="have-login-btn1"><a href="#">LOGIN</a></span>
+                </p>
+            </div>
+            <div class="page-number">
+                <span id="one1">1</span><span id="two1">2</span><span id="three1">3</span>
+            </div>
+        </div>
 
-			<!------------********** SIGNUP-CARD2-START **********------------>
+        <!------------********** SIGNUP-CARD1-END **********------------>
 
-			<div id="signup-card-2">
-				<button type='button' id="close-signupc2">
-					<svg
-						role="img"
-						xmlns="http://www.w3.org/2000/svg"
-						width="25px"
-						height="25px"
-						viewBox="0 0 24 24"
-						aria-labelledby="closeIconTitle"
-						stroke="#2329D6"
-						stroke-width="1.7142857142857142"
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						fill="none"
-						color="#2329D6"
-					>
-						<title>Close</title>
-						<path
-							d="M6.34314575 6.34314575L17.6568542 17.6568542M6.34314575 17.6568542L17.6568542 6.34314575"
-						/>
-					</svg>
-				</button>
-				<h2 class="signup-head">SIGNUP</h2>
-				<div class="signup-details">
-					<div class="input">
-                    <div class="error-pass" id='passajax'><?php echo$passworderr;?></div>
-						<input
-                            type="password"
-                            name="password"
-							class="input-field"
-                            id="pass"
-                            onkeyup="passverify(this.value)"
-							required
-						/>
-						<label class="label-name" for="pass"
-							><span class="content-name">Password</span></label
-						>
-					</div>
-					<div class="input">
-                    <div class="error" id='passcheckajax'></div>
-						<input
-                            type="password"
-                            name="cpassword"
-							class="input-field"
-                            id="cpass"
-                            onkeyup="passcheck(this.value,password.value)"
-							required
-						/>
-						<label class="label-name" for="cpass"
-							><span class="content-name"
-								>Confirm Password</span
-							></label
-						>
-					</div>
-					<div class="inputr">
-						<div class="radio-field">
-							<input
-                                id="student"
-                                name="users"
-								type="radio"
-								name="category"
-								value="student"
-								checked
-							/>
-							<label for="student" class="label-name"
-								>Student</label
-							>
-						</div>
-						<div class="radio-field">
-							<input
-                                id="teacher"
-                                name="users"
-								type="radio"
-								name="category"
-								value="teacher"
-							/>
-							<label for="student" class="label-name"
-								>Teacher</label
-							>
-						</div>
-					</div>
-					<button type='button' id="next2">NEXT</button>
-				</div>
-				<div class="haveacc">
-					<p>
-						Already have an account ?
-						<span id="have-login-btn2"><a href="#">LOGIN</a></span>
-					</p>
-				</div>
-				<div class="page-number">
-					<span id="one2">1</span><span id="two2">2</span
-					><span id="three2">3</span>
-				</div>
-			</div>
+        <!------------********** SIGNUP-CARD2-START **********------------>
 
-			<!------------********** SIGNUP-CARD2-END **********------------>
+        <div id="signup-card-2">
+            <button type='button' id="close-signupc2">
+                <svg role="img" xmlns="http://www.w3.org/2000/svg" width="25px" height="25px" viewBox="0 0 24 24"
+                    aria-labelledby="closeIconTitle" stroke="#2329D6" stroke-width="1.7142857142857142"
+                    stroke-linecap="round" stroke-linejoin="round" fill="none" color="#2329D6">
+                    <title>Close</title>
+                    <path
+                        d="M6.34314575 6.34314575L17.6568542 17.6568542M6.34314575 17.6568542L17.6568542 6.34314575" />
+                </svg>
+            </button>
+            <h2 class="signup-head">SIGNUP</h2>
+            <div class="signup-details">
+                <div class="input">
+                    <span class="error-pass" id='passajax'><?php echo$passworderr;?></span>
+                    <input type="password" name="password" class="input-field" id="pass"
+                        onkeyup="passverify(this.value)" required />
+                    <label class="label-name" for="pass"><span class="content-name">Password</span></label>
+                </div>
+                <div class="input">
+                    <span class="error" id='passcheckajax'></span>
+                    <input type="password" name="cpassword" class="input-field" id="cpass"
+                        onkeyup="passcheck(this.value,password.value)" required />
+                    <label class="label-name" for="cpass"><span class="content-name">Confirm Password</span></label>
+                </div>
+                <div class="inputr">
+                    <div class="radio-field">
+                        <input id="student" name="users" type="radio" name="category" value="student" checked />
+                        <label for="student" class="label-name">Student</label>
+                    </div>
+                    <div class="radio-field">
+                        <input id="teacher" name="users" type="radio" name="category" value="teacher" />
+                        <label for="student" class="label-name">Teacher</label>
+                    </div>
+                </div>
+                <button type='button' id="next2">NEXT</button>
+            </div>
+            <div class="haveacc">
+                <p>
+                    Already have an account ?
+                    <span id="have-login-btn2"><a href="#">LOGIN</a></span>
+                </p>
+            </div>
+            <div class="page-number">
+                <span id="one2">1</span><span id="two2">2</span><span id="three2">3</span>
+            </div>
+        </div>
 
-			<!------------********** SIGNUP-CARD3-START **********------------>
+        <!------------********** SIGNUP-CARD2-END **********------------>
 
-			<div id="signup-card-3">
-				<button type='button' id="close-signupc3">
-					<svg
-						role="img"
-						xmlns="http://www.w3.org/2000/svg"
-						width="25px"
-						height="25px"
-						viewBox="0 0 24 24"
-						aria-labelledby="closeIconTitle"
-						stroke="#2329D6"
-						stroke-width="1.7142857142857142"
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						fill="none"
-						color="#2329D6"
-					>
-						<title>Close</title>
-						<path
-							d="M6.34314575 6.34314575L17.6568542 17.6568542M6.34314575 17.6568542L17.6568542 6.34314575"
-						/>
-					</svg>
-				</button>
-				<h2 class="signup-head">SIGNUP</h2>
-				<div class="signup-details">
-					<div class="input">
-                    <?php echo$collegeerr;?>
-						<p class="college">College</p>
-						<div class="custom-select">
-							<select name="college">
-								<option value="0">Select your college</option>
-								<option value="1">College 1</option>
-								<option value="2">College 2</option>
-								<option value="3">College 3</option>
-								<option value="4">College 4</option>
-								<option value="5">College 3</option>
-								<option value="6">College 4</option>
-							</select>
-						</div>
-					</div>
-					<div class="input">
-                    <?php echo$depterr;?>
-						<p class="dept">Department</p>
-						<div class="custom-select">
-							<select name="dept">
-								<option value="0"
-									>Select your department</option
-								>
-								<option value="1">Computer</option>
-								<option value="2">IT</option>
-								<option value="3">Mechanical</option>
-								<option value="4">Automobile</option>
-								<option value="5">Mechanical</option>
-								<option value="6">Automobile</option>
-							</select>
-						</div>
-					</div>
-					<button type='submit' id="submit"  name='signup'>SIGNUP</button>
-				</div>
-				<div class="haveacc">
-					<p>
-						Already have an account ?
-						<span id="have-login-btn3"><a href="#">LOGIN</a></span>
-					</p>
-				</div>
-				<div class="page-number">
-					<span id="one3">1</span><span id="two3">2</span
-					><span id="three3">3</span>
-				</div>
-			</div>
+        <!------------********** SIGNUP-CARD3-START **********------------>
 
-			<!------------********** SIGNUP-CARD3-END **********------------>
-</form>
-		<!------------********** SIGNUP-END **********------------>
+        <div id="signup-card-3">
+            <button type='button' id="close-signupc3">
+                <svg role="img" xmlns="http://www.w3.org/2000/svg" width="25px" height="25px" viewBox="0 0 24 24"
+                    aria-labelledby="closeIconTitle" stroke="#2329D6" stroke-width="1.7142857142857142"
+                    stroke-linecap="round" stroke-linejoin="round" fill="none" color="#2329D6">
+                    <title>Close</title>
+                    <path
+                        d="M6.34314575 6.34314575L17.6568542 17.6568542M6.34314575 17.6568542L17.6568542 6.34314575" />
+                </svg>
+            </button>
+            <h2 class="signup-head">SIGNUP</h2>
+            <div class="signup-details">
+                <div class="input">
+                    <span class="error"> <?php echo$collegeerr;?></span>
+                    <p class="college">College</p>
+                    <div class="custom-select">
+                        <select name="college">
+                            <option value="0">Select your college</option>
+                            <option value="1">College 1</option>
+                            <option value="2">College 2</option>
+                            <option value="3">College 3</option>
+                            <option value="4">College 4</option>
+                            <option value="5">College 3</option>
+                            <option value="6">College 4</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="input">
+                    <span class="error"><?php echo$depterr;?></span>
+                    <p class="dept">Department</p>
+                    <div class="custom-select">
+                        <select name="dept">
+                            <option value="0">Select your department</option>
+                            <option value="1">Computer</option>
+                            <option value="2">IT</option>
+                            <option value="3">Mechanical</option>
+                            <option value="4">Automobile</option>
+                            <option value="5">Mechanical</option>
+                            <option value="6">Automobile</option>
+                        </select>
+                    </div>
+                </div>
+                <button type='submit' id="submit" name='signup'>SIGNUP</button>
+            </div>
+            <div class="haveacc">
+                <p>
+                    Already have an account ?
+                    <span id="have-login-btn3"><a href="#">LOGIN</a></span>
+                </p>
+            </div>
+            <div class="page-number">
+                <span id="one3">1</span><span id="two3">2</span><span id="three3">3</span>
+            </div>
+        </div>
 
-		<!------------********** JAVASCRIPT-START **********------------>
+        <!------------********** SIGNUP-CARD3-END **********------------>
+    </form>
+    <!------------********** SIGNUP-END **********------------>
 
-		<script src="js/select.js"></script>
-		<script src="js/index.js"></script>
+    <!------------********** JAVASCRIPT-START **********------------>
 
-		<!------------********** JAVASCRIPT-END **********------------>
-	</body>
+    <script src="js/select.js"></script>
+    <script src="js/index.js"></script>
+
+    <!------------********** JAVASCRIPT-END **********------------>
+</body>
+
 </html>

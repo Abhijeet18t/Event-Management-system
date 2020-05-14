@@ -1,0 +1,98 @@
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+* body {
+  font-size: calc(14px + (18 - 14) * ((100vw - 300px) / (1600 - 300)));
+}
+
+main {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+  -ms-grid-rows: 15vh 85vh;
+      grid-template-rows: 15vh 85vh;
+  font-family: "poppins";
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-image: url("draw.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+header {
+  color: #fff;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.form {
+  max-width: 500px;
+  position: relative;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 70%;
+  height: 80%;
+  background-color: #fff;
+  border-radius: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.form .input {
+  position: relative;
+  width: 80%;
+}
+
+.form .input .input-field {
+  font-family: "poppins";
+  font-size: 1em;
+  width: 100%;
+  height: 50px;
+  padding: 0px 3px;
+  border: none;
+  border-bottom: 2px solid #101820;
+}
+
+.form .input .input-field:focus {
+  outline: none;
+}
+
+.form .input .inputb {
+  width: 100%;
+  text-align: center;
+}
+
+.form .input label {
+  position: absolute;
+  top: -20px;
+  left: 0px;
+}
+
+.form .submit-btn {
+  cursor: pointer;
+  width: 80%;
+  height: 40px;
+  font-size: inherit;
+  border-radius: 50px;
+  border: none;
+  background-color: #fee715;
+}
+/*# sourceMappingURL=form.css.map */

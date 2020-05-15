@@ -237,6 +237,13 @@ if($debut==0){
 
 if(isset($_POST["submitpic"])) // profile pic upload
  {
+	$dbServername="localhost";
+	$dbUsername="root";
+	$dbPassword="";
+	$dbName="drawingcomp";
+	$conn =mysqli_connect($dbServername,$dbUsername,$dbPassword,$dbName);
+
+
 	 $file=$_FILES["file"];
 	 $filename=$_FILES["file"]["name"];
 	 $filetype=$_FILES["file"]["type"];

@@ -31,7 +31,12 @@
 					<ul>
 						<li>
 							<figure>
-								<img src="draw.jpg" alt="drawing" />
+								<img
+									id="0"
+									class="image-draw"
+									src="draw.jpg"
+									alt="drawing"
+								/>
 							</figure>
 							<div class="info">
 								<div class="name">
@@ -50,7 +55,12 @@
 
 						<li>
 							<figure>
-								<img src="draw.jpg" alt="drawing" />
+								<img
+									id="2"
+									class="image-draw"
+									src="draw.jpg"
+									alt="drawing"
+								/>
 							</figure>
 							<div class="info">
 								<div class="name">
@@ -68,7 +78,11 @@
 
 						<li>
 							<figure>
-								<img src="draw.jpg" alt="drawing" />
+								<img
+									class="image-draw"
+									src="draw.jpg"
+									alt="drawing"
+								/>
 							</figure>
 							<div class="info">
 								<div class="name">
@@ -84,43 +98,11 @@
 						</li>
 						<li>
 							<figure>
-								<img src="draw.jpg" alt="drawing" />
-							</figure>
-							<div class="info">
-								<div class="name">
-									<span class="cat">Name:</span>atharva
-									kulkarni
-								</div>
-								<div class="mobile">
-									<span class="cat">Mobile:</span>xxx3762390
-								</div>
-								<div class="add">
-									<span class="cat">Address:</span> pimple
-									gurav
-								</div>
-							</div>
-						</li>
-						<li>
-							<figure>
-								<img src="draw.jpg" alt="drawing" />
-							</figure>
-							<div class="info">
-								<div class="name">
-									<span class="cat">Name:</span>atharva
-									kulkarni
-								</div>
-								<div class="mobile">
-									<span class="cat">Mobile:</span>xxx3762390
-								</div>
-								<div class="add">
-									<span class="cat">Address:</span> pimple
-									gurav
-								</div>
-							</div>
-						</li>
-						<li>
-							<figure>
-								<img src="draw.jpg" alt="drawing" />
+								<img
+									class="image-draw"
+									src="draw.jpg"
+									alt="drawing"
+								/>
 							</figure>
 							<div class="info">
 								<div class="name">
@@ -140,5 +122,54 @@
 				</section>
 			</article>
 		</main>
+
+		<div id="Modal" class="modal">
+			<span class="close">
+				<svg
+					role="img"
+					xmlns="http://www.w3.org/2000/svg"
+					width="25px"
+					height="25px"
+					viewBox="0 0 24 24"
+					aria-labelledby="closeIconTitle"
+					stroke="#2329D6"
+					stroke-width="1.7142857142857142"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					fill="none"
+					color="#2329D6"
+				>
+					<title id="closeIconTitle">Close</title>
+					<path
+						d="M6.34314575 6.34314575L17.6568542 17.6568542M6.34314575 17.6568542L17.6568542 6.34314575"
+					/>
+				</svg>
+			</span>
+
+			<img class="modal-content" id="modal-img" />
+		</div>
+
+		<script>
+			const modal = document.getElementById("Modal")
+			let image = document.getElementById("0")
+			const modalImg = document.getElementById("modal-img")
+
+			image.onclick = function () {
+				modal.style.display = "block"
+				modalImg.src = this.src
+			}
+
+			const closeBtn = document.getElementsByClassName("close")[0]
+
+			closeBtn.onclick = function () {
+				modal.style.display = "none"
+			}
+
+			window.onclick = function (event) {
+				if (event.target == modal) {
+					modal.style.display = "none"
+				}
+			}
+		</script>
 	</body>
 </html>

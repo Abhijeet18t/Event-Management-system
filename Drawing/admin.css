@@ -59,7 +59,7 @@ main .main-card .table-btn {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  height: 150px;
+  height: 170px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -72,15 +72,26 @@ main .main-card .table-btn {
   background-color: #f1f1f1;
 }
 
+main .main-card .table-btn a,
 main .main-card .table-btn button {
   cursor: pointer;
-  width: 80%;
-  margin-top: 10px;
+  text-align: center;
   padding: .5em 1em;
   height: 40px;
   border-radius: 50px;
   border: none;
   background-color: #fee715;
+  text-decoration: none;
+  color: #101820;
+}
+
+main .main-card .table-btn a {
+  width: 80%;
+  font-size: .7em;
+}
+
+main .main-card .table-btn button {
+  width: 100%;
 }
 
 main .main-card .table-btn .select {
@@ -93,11 +104,13 @@ main .main-card .table-btn .select select {
   height: 40px;
   border-radius: 50px;
   padding-left: 10px;
+  border: none;
+  border: 1px solid #101820;
 }
 
 main .main-card .images {
   width: 100%;
-  height: 800px;
+  height: 780px;
   overflow-y: auto;
   padding: 2rem;
 }
@@ -127,7 +140,8 @@ main .main-card .images ul li figure {
   position: relative;
 }
 
-main .main-card .images ul li figure img {
+main .main-card .images ul li figure .image-draw {
+  cursor: pointer;
   width: 100%;
   height: 100%;
 }
@@ -143,5 +157,82 @@ main .main-card .images ul li .info .cat {
   padding-right: 5px;
   color: #101820;
   font-weight: 600;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+@-webkit-keyframes anim {
+  from {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  to {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes anim {
+  from {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  to {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+.modal .close {
+  cursor: pointer;
+  display: block;
+  position: absolute;
+  padding: 0;
+  margin: 0;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  top: 15px;
+  right: 5%;
+}
+
+.modal .close svg {
+  stroke: #fee715;
+  stroke-width: 3px;
+}
+
+.modal .modal-content {
+  -webkit-animation: anim 0.3s ease-in-out;
+          animation: anim 0.3s ease-in-out;
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+
+@media only screen and (max-width: 700px) {
+  .modal .modal-content {
+    width: 100%;
+  }
 }
 /*# sourceMappingURL=admin.css.map */

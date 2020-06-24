@@ -42,7 +42,7 @@ if(isset($_POST['small'])){
          if($fileerror===0){
              if($filesize<1000000){
                  $filenewname=$username.".".$fileactext;
-                 $filedestin="C:/xampp/htdocs/Drawing/images/".$filenewname;
+                 $filedestin="C:/xampp/htdocs/projectc/Drawing/images/".$filenewname;
                  $sql="INSERT INTO `drawing`(`name`, `phone`,`address`, `age`, `img_name`) VALUES ('$name','$phone','$address','$age','$filenewname');";
                  mysqli_query($conn,$sql);  
                  move_uploaded_file($filetmpname,$filedestin);

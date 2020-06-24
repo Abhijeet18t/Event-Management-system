@@ -1,0 +1,270 @@
+@import "colors";
+@import "functions";
+
+* {
+  a {
+    text-decoration: none;
+    color: $main-font;
+    display: inline-block;
+  }
+}
+
+body {
+  font-family: "montserrat";
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+
+  main {
+    margin: 0;
+    padding: 0;
+    display: grid;
+    height: 100vh;
+    color: $main-font;
+    grid-template-columns: 5vw 65vw 30vw;
+    grid-template-rows: 70px 0.95fr 0.95fr 0.1fr;
+    grid-template-areas:
+      "sidebar nav profile"
+      "sidebar events profile"
+      "sidebar events profile"
+      "sidebar . .";
+
+    .sidebar {
+      position: relative;
+      grid-area: sidebar;
+      background-color: $royal-blue;
+
+      .pro-circle {
+        position: absolute;
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 3vw;
+        height: 3vw;
+        border-radius: 50%;
+      }
+
+      .side-links {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        height: 500px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+
+        svg {
+          padding: 1em 1em;
+          border-radius: 5px;
+          cursor: pointer;
+          transition: background-color 0.1s ease-in-out;
+
+          &:hover {
+            background-color: $faint-blue;
+          }
+        }
+      }
+    }
+
+    .nav {
+      grid-area: nav;
+      display: grid;
+      width: 100%;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr;
+
+      .input {
+        position: relative;
+        @include flexcenter;
+
+        input {
+          font-family: "oswald";
+          font-size: 1em;
+          width: 70%;
+          height: 35px;
+          border: none;
+          background-color: $back-blue;
+          border-radius: 50px;
+          padding: 0 30px;
+        }
+
+        .search-label {
+          position: absolute;
+          left: 90px;
+        }
+      }
+
+      .nav-links {
+        @include flexcenter-around(row);
+
+        a {
+          font-family: "oswald";
+          font-weight: 400;
+          text-decoration: none;
+          padding: 0.5em 1.5em;
+          color: $main-font;
+          border-radius: 50px;
+          transition: transform 0.2s ease-in-out;
+
+          &:hover {
+            transform: scale(1.1);
+          }
+        }
+
+        .logout-btn {
+          background-color: $blue-green;
+
+          &::after {
+            position: absolute;
+            display: block;
+            content: "";
+            background-image: url("entrance.svg");
+            width: 10px;
+            height: 10px;
+          }
+        }
+      }
+    }
+
+    .events {
+      grid-area: events;
+      @include flexcenter-around(column);
+      position: relative;
+
+      .nested_nav {
+        font-family: "montserrat";
+        width: 85%;
+        height: 50px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .create {
+        border-radius: 10px;
+        width: 90%;
+        height: 80%;
+        box-sizing: border-box;
+        padding: 20px 0;
+
+        .event_container {
+          box-sizing: border-box;
+          padding: 15px 10px 15px 20px;
+          position: relative;
+          width: 95%;
+          margin: 0px auto;
+          margin-bottom: 20px;
+          height: 150px;
+          border-radius: 10px;
+          background-color: $back-blue;
+          display: flex;
+          flex-direction: row;
+          .img_container {
+            width: 120px;
+            height: 120px;
+            display: inline-block;
+            background-color: white;
+            border-radius: 8px;
+          }
+          .event_info {
+            height: 120px;
+            width: 600px;
+            box-sizing: border-box;
+            background-color: $back-blue;
+            display: inline-block;
+            border-radius: 10px;
+            margin-left: 20px;
+            padding: 10px;
+
+            h3 {
+              font-weight: 500;
+              padding: 0;
+              margin: 0;
+            }
+          }
+          .more {
+            right: 25px;
+            bottom: 8px;
+            position: absolute;
+            border: none;
+            border-radius: 5px;
+            background-color: $back-blue;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+
+    .profile {
+      grid-area: profile;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+
+      .profile-cont {
+        width: 85%;
+        height: 97%;
+        border-radius: 20px;
+        background-color: $back-blue;
+
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 3fr;
+        grid-template-areas:
+          "my-profile"
+          "notifications";
+
+        .my-profile {
+          grid-area: my-profile;
+          position: relative;
+          @include flexcenter-around(row);
+
+          &::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            width: 70%;
+            border-bottom: 2px solid $royal-blue;
+          }
+
+          img {
+            border-radius: 50%;
+          }
+
+          .names {
+            @include flexcenter;
+            padding-right: 20px;
+
+            h4 {
+              font-family: "montserrat";
+              font-size: 1.2em;
+
+              .profession {
+                font-family: "oswald";
+                font-weight: 300;
+                font-size: 0.8em;
+              }
+            }
+          }
+        }
+
+        .notifications {
+          position: relative;
+          grid-area: notifications;
+
+          .notification-head {
+            text-align: center;
+            font-family: "montserrat";
+            font-weight: 400;
+          }
+
+          .current-notifications {
+            @include flexcenter-around(column);
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,3 +1,7 @@
+<?php
+session_start();
+include '../dbhusers.php';
+?>
 <!DOCTYPE html>
 <html class="no-js">
 	<head>
@@ -19,6 +23,24 @@
 			href="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.css"
 		/>
 		<link rel="stylesheet" href="css/create_event.css" />
+		<script>
+//ename avail
+function eventname(name) {
+    if (name.length == 0) {
+        document.getElementById("enameajax").innerHTML = "";
+        return;
+    } else {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("enameajax").innerHTML = this.responseText;
+            }
+        };
+        xmlhttp.open("GET", "enameajax.php?ename=" + name, true);
+        xmlhttp.send();
+    }
+}
+</script>
 	</head>
 
 	<body id="body">
@@ -96,6 +118,71 @@
 					<a class="logout-btn" href="#">LOGOUT</a>
 				</div>
 			</div>
+
+			<?php
+$ename=$edes=$eimage="";
+$enameerr=$eimageerr="";
+
+if(isset($_POST['sevent'])){
+$ename=mysqli_real_escape_string($conn,$_POST['ename']);
+$visibility=mysqli_real_escape_string($conn,$_POST['visibility']);
+$sql="SELECT ename FROM events WHERE 1;";
+$result=mysqli_query($conn,$sql);
+$num=mysqli_num_rows($result);
+if($num>0){
+    while($row=mysqli_fetch_array($result)){
+        if($row['ename']==$ename){
+            $enameerr="name not available";
+        }
+    }
+}
+$edes=mysqli_real_escape_string($conn,$_POST['edes']);
+$verification=mysqli_real_escape_string($conn,$_POST['verification']);
+$college=$_SESSION['college'];
+$name=$_SESSION['name'];
+$user=$_SESSION['user'];
+$username=$_SESSION['username'];
+$file=$_FILES["file"];
+	 $filename=$_FILES["file"]["name"];
+	 $filetype=$_FILES["file"]["type"];
+	 $filetmpname=$_FILES["file"]["tmp_name"];
+	 $fileerror=$_FILES["file"]["error"];
+	 $filesize=$_FILES["file"]["size"];
+	 
+	 
+	 $fileext=explode(".",$filename);
+	 $fileactext=strtolower(end($fileext));
+	 $allowedext=array("jpg","png","jpeg");
+	  if(in_array($fileactext,$allowedext)){
+		  if($fileerror===0){
+			  if($filesize<1000000){
+				  $username=$_SESSION['username'];
+				  $filenewname=$ename.".".$fileactext;
+				  $filedestin="C:/xampp/htdocs/projectc/event/event-images/".$filenewname;
+				  
+				  move_uploaded_file($filetmpname,$filedestin);
+			  }
+			  else{
+				  $eimageerr="file size exceeds 2 MB!";
+			  }
+		  }
+		  else{
+			$eimageerr="error opening file!";			
+		  }	
+		
+	  }
+	   else{
+		$eimageerr="file extension not supported";
+	}
+if(empty($enameerr)&&empty($eimageerr)){
+$sql="INSERT INTO `events`(`name`,`username`,`user`,`college`, `ename`,`visibility`, `edes`,`verification`) VALUES ('$name','$username','$user','$college','$ename','$visibility','$edes','$verification');";
+mysqli_query($conn,$sql);
+echo"event created successfully";
+}
+}
+?>
+
+
 			<div class="events">
 				<h4>EVENTS</h4>
 				<div class="nested_nav">
@@ -104,20 +191,20 @@
 					<a href="" class="event_link">Ongoing</a>
 					<a href="" class="event_link">Enrolled</a>
 				</div>
-				<div class="create">
+				<form class="create" method='POST' enctype='multipart/form-data'>
 					<div class="img"><img src="calendar.svg" alt="" /></div>
 					<div class="data">
 						<div class="box1">
 							<label for="img">
-								<input type="file" id="img" />
+								<input type="file" name='file' id="img" />
 								<span class="evimg">upload image</span>
 							</label>
 							<div class="sub-box1">
 								<div class="input">
-									<input type="text" id="name" required />
+									<input type="text" name='ename' id="name" onkeyup='eventname(this.value)'  required />
 									<label class="label-name" for="name"
 										>Name</label
-									>
+									><div id='enameajax'><?php echo$enameerr ?></div>
 								</div>
 								<div class="input">
 									<select name="visibility" id="visibility">
@@ -137,7 +224,7 @@
 						</div>
 						<div class="box2">
 							<textarea
-								name=""
+								name="edes"
 								id="desc"
 								cols="92"
 								rows="10"
@@ -145,15 +232,16 @@
 							></textarea>
 							<label for="desc">Description</label>
 						</div>
+						<input type='hidden' name='verification' value="no">  <!--no verification required-->
 						<div class="box3">
-							<input type="checkbox" id="verify" />
+							<input type="checkbox" name="verification" id="verify" value="yes" />
 							<label class="lable-verify" for="verify"
 								>Verification</label
 							>
-							<button class="create">Create</button>
+							<button type='submit' name='sevent'class="create">Create</button>
 						</div>
 					</div>
-				</div>
+               </form>
 			</div>
 			<div class="profile">
 				<div class="profile-cont">

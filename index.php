@@ -25,8 +25,8 @@ include 'dbhusers.php';
             <div class="nav">
                 <a class="about" href="#">ABOUT</a>
                 <a href="#">CONTACT</a>
-                <a id="login-btn" href="#">LOGIN</a>
-                <a id="signup-btn" class="signup-btn" href="#">SIGNUP</a>
+                <a id="login-btn" >LOGIN</a>
+                <a id="signup-btn" class="signup-btn" >SIGNUP</a>
             </div>
             <div class="header">
                 <h1>
@@ -172,12 +172,12 @@ if(isset($_POST['login'])){
 
                 <div class="input">
                     <span class='error'><?php echo $usererr;?></span>
-                    <input type="text" name="username" class="input-field" id="email" required />
+                    <input type="text" name="username" class="input-field" id="email" value="<?php echo$username;?>" required  />
                     <label class="label-name" for="email"><span class="content-name">Email/Username</span></label>
                 </div>
                 <div class="input">
                     <span class='error'><?php echo $passerr;?></span>
-                    <input type="password" name="pass" class="input-field" id="pass" required autofill="off" />
+                    <input type="password" name="pass" class="input-field" id="pass" value="<?php echo$pass;?>" required autofill="off" />
                     <label class="label-name" for="pass"><span class="content-name">Password</span></label>
                 </div>
                 <button type='submit' class="login-btn" name='login'>LOGIN</button>
@@ -433,19 +433,19 @@ echo "<script>alert('Data not inserted');</script>";
             <div class="signup-details">
                 <div class="input">
                     <span class='error'><?php  echo$nameerr;?></span>
-                    <input type="text" name="name" class="input-field" id="name" required />
+                    <input type="text" name="name" class="input-field" id="name" value="<?php echo$name;?>"  />
                     <label class="label-name" for="name"><span class="content-name">Name</span></label>
                 </div>
                 <div class="input">
                     <span class="error" id='userajax'><?php echo$usernameserr;?></span>
-                    <input type="text" name="usernames" class="input-field" id="username" onkeyup="user(this.value)"
-                        required />
+                    <input type="text" name="usernames" class="input-field" id="username" value="<?php echo$usernames;?>" onkeyup="user(this.value)"
+                         />
                     <label class="label-name" for="username"><span class="content-name">Username</span></label>
                 </div>
                 <div class="input">
                     <span class="error" id='emailajax'><?php echo$emailerr; ?></span>
-                    <input type="text" name="email" class="input-field" id="email" onkeyup="emailverify(this.value)"
-                        required />
+                    <input type="text" name="email" class="input-field" id="email" onkeyup="emailverify(this.value)" value="<?php echo$email;?>"
+                         />
                     <label class="label-name" for="email"><span class="content-name">Email</span></label>
                 </div>
                 <button type='button' id="next">NEXT</button>
@@ -480,13 +480,13 @@ echo "<script>alert('Data not inserted');</script>";
                 <div class="input">
                     <span class="error-pass" id='passajax'><?php echo$passworderr;?></span>
                     <input type="password" name="password" class="input-field" id="pass"
-                        onkeyup="passverify(this.value)" required />
+                        onkeyup="passverify(this.value)"   />
                     <label class="label-name" for="pass"><span class="content-name">Password</span></label>
                 </div>
                 <div class="input">
                     <span class="error" id='passcheckajax'></span>
                     <input type="password" name="cpassword" class="input-field" id="cpass"
-                        onkeyup="passcheck(this.value,password.value)" required />
+                        onkeyup="passcheck(this.value,password.value)"  />
                     <label class="label-name" for="cpass"><span class="content-name">Confirm Password</span></label>
                 </div>
                 <div class="inputr">
@@ -584,19 +584,43 @@ echo "<script>alert('Data not inserted');</script>";
     const loginmodal = document.getElementById("login-pop")
     const signupmodal = document.getElementById("signup-pop")
     const signupcard1 = document.getElementById("signup-card-1")
+    const signupcard2 = document.getElementById("signup-card-2")
+    const signupcard3 = document.getElementById("signup-card-3")
+
 
 
     //login onload start
+    <?php if($usererr||$passerr){?>
     body.onload = function() {
         loginmodal.style.display = "block"
     }
+    <?php }?>
     //login onload end
 
     //signup onload start
+    <?php if($collegeerr||$depterr){?>
+    body.onload = function() {
+        signupmodal.style.display = "block"
+        signupcard3.style.display = "block"
+    }
+<?php }?>
+
+
+<?php if($passworderr||$userserr){?>
+    body.onload = function() {
+        signupmodal.style.display = "block"
+        signupcard2.style.display = "block"
+    }
+<?php }?>
+
+    <?php if($nameerr||$usernameserr||$emailerr){?>
     body.onload = function() {
         signupmodal.style.display = "block"
         signupcard1.style.display = "block"
     }
+<?php }?>
+
+
     //signup onload end
     </script>
 

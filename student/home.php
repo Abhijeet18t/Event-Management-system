@@ -6,7 +6,7 @@ echo"success";?>
 <form method='POST' action="logout">
 <button type='submit' name='submit'>LOGOUT</button>
 </form>
-<a href='../events/events.php'><button>events</button></a>
+<a href='../event/create-event/create_event.php'><button>events</button></a>
 </html>
 
 <?php

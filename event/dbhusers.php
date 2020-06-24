@@ -1,6 +1,7 @@
-<?php
+ <?php
+
 $dbServername="localhost";
 $dbUsername="root";
 $dbPassword="";
-$dbName="drawingcomp";
+$dbName="projectcusers";
 $conn =mysqli_connect($dbServername,$dbUsername,$dbPassword,$dbName);

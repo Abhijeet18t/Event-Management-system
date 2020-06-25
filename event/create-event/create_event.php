@@ -196,9 +196,15 @@ echo"event created successfully";
 					<div class="data">
 						<div class="box1">
 							<label for="img">
-								<input type="file" name='file' id="img" />
-								<span class="evimg">upload image</span>
+								<input type="file" name='file' accept='image/*' onchange="loadFile(event)" id="img" />
+								<span class="evimg"><img id="output" width='200px' alt='upload image' /></span>
 							</label>
+							<script>
+var loadFile = function(event) {
+	var image = document.getElementById('output');
+	image.src = URL.createObjectURL(event.target.files[0]);
+};
+</script>
 							<div class="sub-box1">
 								<div class="input">
 									<input type="text" name='ename' id="name" onkeyup='eventname(this.value)'  required />

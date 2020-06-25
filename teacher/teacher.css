@@ -196,7 +196,7 @@
 }
 
 #teacher-pop #second {
-  display:block;
+  display: none;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -429,10 +429,7 @@ body main {
       grid-template-columns: 5vw 65vw 30vw;
   -ms-grid-rows: 70px 0.95fr 0.95fr 0.1fr;
       grid-template-rows: 70px 0.95fr 0.95fr 0.1fr;
-      grid-template-areas: "sidebar nav profile"
- "sidebar events profile"
- "sidebar departments profile"
- "sidebar . .";
+      grid-template-areas: "sidebar nav profile" "sidebar events profile" "sidebar departments profile" "sidebar . .";
 }
 
 body main .sidebar {
@@ -844,8 +841,7 @@ body main .profile .profile-cont {
       grid-template-columns: 1fr;
   -ms-grid-rows: 1fr 3fr;
       grid-template-rows: 1fr 3fr;
-      grid-template-areas: "my-profile"
- "notifications";
+      grid-template-areas: "my-profile" "notifications";
 }
 
 body main .profile .profile-cont .my-profile {
@@ -929,9 +925,5 @@ body main .profile .profile-cont .notifications .current-notifications {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-}
-.flexible-div{
-  width:100%;
-
 }
 /*# sourceMappingURL=teacher.css.map */

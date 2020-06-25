@@ -223,6 +223,7 @@ body main .events .create {
 }
 
 body main .events .create .img {
+  position: relative;
   display: inline-block;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -247,6 +248,7 @@ body main .events .create .img {
 body main .events .create .img img {
   width: 350px;
   height: 350px;
+  position: absolute;
 }
 
 body main .events .create .data {
@@ -260,6 +262,7 @@ body main .events .create .data {
 }
 
 body main .events .create .data .box1 {
+  position: relative;
   width: 100%;
   height: 160px;
   display: -webkit-box;
@@ -606,4 +609,4 @@ body main .profile .profile-cont .notifications .current-notifications {
       -ms-flex-align: center;
           align-items: center;
 }
-/*# sourceMappingURL=admin.css.map */
+/*# sourceMappingURL=create_event.css.map */

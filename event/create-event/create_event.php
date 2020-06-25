@@ -197,7 +197,7 @@ echo"event created successfully";
 						<div class="box1">
 							<label for="img">
 								<input type="file" name='file' accept='image/*' onchange="loadFile(event)" id="img" />
-								<span class="evimg"><img id="output" width='200px' alt='upload image' /></span>
+								<span class="evimg"><img id="output" width='200px'  />upload image</span>
 							</label>
 							<script>
 var loadFile = function(event) {

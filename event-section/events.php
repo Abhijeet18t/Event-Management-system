@@ -22,7 +22,7 @@ include '../dbhusers.php';
 			rel="stylesheet"
 			href="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.css"
 		/>
-		<link rel="stylesheet" href="css/create_event.css" />
+		<link rel="stylesheet" href="css/events.css" />
 		<script>
 //ename avail
 function eventname(name) {
@@ -186,12 +186,12 @@ echo"event created successfully";
 			<div class="events">
 				<h4>EVENTS</h4>
 				<div class="nested_nav">
-					<a href="" class="event_link">Create</a>
-					<a href="" class="event_link">My Events</a>
-					<a href="" class="event_link">Ongoing</a>
-					<a href="" class="event_link">Enrolled</a>
+					<a class="event_link" id="create_b">Create</a>
+					<a class="event_link" id="my_b">My Events</a>
+					<a class="event_link" id="ongoing_b">Ongoing</a>
+					<a class="event_link" id="joined_b">Enrolled</a>
 				</div>
-				<form class="create" method='POST' enctype='multipart/form-data'>
+				<form id="create_e" class="create_event" method='POST' enctype='multipart/form-data'>
 					<div class="img"><img src="calendar.svg" alt="" /></div>
 					<div class="data">
 						<div class="box1">
@@ -247,7 +247,86 @@ var loadFile = function(event) {
 							<button type='submit' name='sevent'class="create">Create</button>
 						</div>
 					</div>
-               </form>
+			   </form>
+
+			   <!-- ****** MY EVENTS START ******-->
+
+			   <div id="my_e" class="my_event" data-simplebar>
+					<div class="event_container">
+						<div class="img_container"></div>
+						<div class="event_info">
+							<h3>Atharva Kulkarni</h3>
+							<br />
+							this event is sponsored by nikhil shinde
+						</div>
+						<button class="more">more</button>
+					</div>
+					<div class="event_container">
+						<div class="img_container"></div>
+						<div class="event_info"></div>
+						<button class="more">more</button>
+					</div>
+					<div class="event_container">
+						<div class="img_container"></div>
+						<div class="event_info"></div>
+						<button class="more">more</button>
+					</div>
+				</div>
+
+				<!-- ****** MY EVENTS END ******-->
+
+				<!-- ****** ONGOING EVENT START ******-->
+
+				<div id="ongoing_e" class="ongoing_event" data-simplebar>
+					<div class="event_container">
+						<div class="img_container"></div>
+						<div class="event_info">
+							<h3>Atharva Kulkarni</h3>
+							<br />
+							this event is sponsored by nikhil shinde
+						</div>
+						<button class="more">more</button>
+					</div>
+					<div class="event_container">
+						<div class="img_container"></div>
+						<div class="event_info"></div>
+						<button class="more">more</button>
+					</div>
+					<div class="event_container">
+						<div class="img_container"></div>
+						<div class="event_info"></div>
+						<button class="more">more</button>
+					</div>
+				</div>
+
+				<!-- ****** ONGOING EVENT END ******-->
+
+				<!-- ****** JOINED EVENT START ******-->
+
+				<div id="joined_e" class="joined_event" data-simplebar>
+					<div class="event_container">
+						<div class="img_container"></div>
+						<div class="event_info">
+							<h3>Atharva Kulkarni</h3>
+							<br />
+							this event is sponsored by nikhil shinde
+						</div>
+						<button class="more">more</button>
+					</div>
+					<div class="event_container">
+						<div class="img_container"></div>
+						<div class="event_info"></div>
+						<button class="more">more</button>
+					</div>
+					<div class="event_container">
+						<div class="img_container"></div>
+						<div class="event_info"></div>
+						<button class="more">more</button>
+					</div>
+				</div>
+
+				<!-- ****** JOINED EVENT END ******-->
+
 			</div>
 			<div class="profile">
 				<div class="profile-cont">
@@ -275,6 +354,7 @@ var loadFile = function(event) {
 		</main>
 		<footer class="footer"></footer>
 
+		<script src="js/event.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.min.js"></script>
 	</body>
 </html>

@@ -1,6 +1,7 @@
 <?php
 session_start();
-include '../dbhusers.php';
+if(isset($_SESSION['username'])){
+include 'dbhusers.php';
 ?>
 <!DOCTYPE html>
 <html class="no-js">
@@ -115,7 +116,7 @@ function eventname(name) {
 					<a href="#">FEEDBACK</a>
 					<a href="#">HELP</a>
 					<a href="#">CONTACT</a>
-					<a class="logout-btn" href="#">LOGOUT</a>
+					<a class="logout-btn" href="logout.php">LOGOUT</a>
 				</div>
 			</div>
 
@@ -158,7 +159,7 @@ $file=$_FILES["file"];
 			  if($filesize<1000000){
 				  $username=$_SESSION['username'];
 				  $filenewname=$ename.".".$fileactext;
-				  $filedestin="C:/xampp/htdocs/projectc/event/event-images/".$filenewname;
+				  $filedestin="C:/xampp/htdocs/projectc/event-section/event-images/".$filenewname;
 				  
 				  move_uploaded_file($filetmpname,$filedestin);
 			  }
@@ -175,7 +176,7 @@ $file=$_FILES["file"];
 		$eimageerr="file extension not supported";
 	}
 if(empty($enameerr)&&empty($eimageerr)){
-$sql="INSERT INTO `events`(`name`,`username`,`user`,`college`, `ename`,`visibility`, `edes`,`verification`) VALUES ('$name','$username','$user','$college','$ename','$visibility','$edes','$verification');";
+$sql="INSERT INTO `events`(`name`,`username`,`user`,`college`, `ename`,`visibility`, `edes`,`imagename`,`verification`) VALUES ('$name','$username','$user','$college','$ename','$visibility','$edes','$filenewname','$verification');";
 mysqli_query($conn,$sql);
 echo"event created successfully";
 }
@@ -279,25 +280,56 @@ var loadFile = function(event) {
 				<!-- ****** ONGOING EVENT START ******-->
 
 				<div id="ongoing_e" class="ongoing_event" data-simplebar>
+				<?php
+				 $college=$_SESSION['college'];
+				 $username=$_SESSION['username'];
+				 if(isset($_POST['enroll'])){// enroll action
+					 $eventname=mysqli_real_escape_string($conn,$_POST['eventname']);
+					 $creator=mysqli_real_escape_string($conn,$_POST['creator']);
+					 $verify=mysqli_real_escape_string($conn,$_POST['verification']);
+					 if($verify=='yes'){
+						 $vstat=0;
+					 }else{
+						 $vstat=1;
+					 }
+					$sql="INSERT INTO `eventusers`(`username`, `college`, `ename`,`creator`, `vstat`) VALUES ('$username','$college','$eventname','$creator','$vstat');";
+					mysqli_query($conn,$sql);
+					
+				}
+				
+				 //events list                                                                    
+				$sql="SELECT * FROM events WHERE college='$college' AND ename NOT IN(SELECT ename FROM eventusers WHERE username='$username');";
+				$result=mysqli_query($conn,$sql);
+				$num=mysqli_num_rows($result);
+					   
+				if($num){
+					while($row=mysqli_fetch_array($result)){
+						$ename=$row['ename'];
+						$edes=$row['edes'];
+						$creator=$row['username'];
+						$verification=$row['verification'];
+						$imagename=$row['imagename'];
+				?>
 					<div class="event_container">
-						<div class="img_container"></div>
+						<div class="img_container"><?php echo"<img src='event-images/$imagename' width='150px'>";?></div>
 						<div class="event_info">
-							<h3>Atharva Kulkarni</h3>
+							<?php echo"<h3>$ename</h3>"; ?>
 							<br />
-							this event is sponsored by nikhil shinde
+							<?php echo$edes;?>
 						</div>
-						<button class="more">more</button>
+						<?php echo"<form method='POST'>
+        <input type='hidden' name='eventname' value='$ename'>
+        <input type='hidden' name='creator' value='$creator'>
+        <input type='hidden' name='verification' value='$verification'>
+        <button type='submit'  name='enroll'>ENROLL</button>
+        </form><br><br>";?>
 					</div>
-					<div class="event_container">
-						<div class="img_container"></div>
-						<div class="event_info"></div>
-						<button class="more">more</button>
-					</div>
-					<div class="event_container">
-						<div class="img_container"></div>
-						<div class="event_info"></div>
-						<button class="more">more</button>
-					</div>
+					<?php }
+					}else{
+						echo"NO events to display";
+					}
+					
+					?>
 				</div>
 
 				<!-- ****** ONGOING EVENT END ******-->
@@ -305,25 +337,36 @@ var loadFile = function(event) {
 				<!-- ****** JOINED EVENT START ******-->
 
 				<div id="joined_e" class="joined_event" data-simplebar>
+				<?php
+				$sql4="SELECT * FROM events WHERE college='$college' AND ename  IN(SELECT ename FROM eventusers WHERE username='$username');";
+				$result4=mysqli_query($conn,$sql4);
+
+				$num=mysqli_num_rows($result4);
+				if($num>0){
+					
+					while($row=mysqli_fetch_array($result4)){
+						
+						$ename=$row['ename'];
+						$edes=$row['edes'];
+						$imagename=$row['imagename'];
+						
+
+				?>
 					<div class="event_container">
-						<div class="img_container"></div>
+						<div class="img_container"><?php echo"<img src=event-images/$imagename width='190px'>";?></div>
 						<div class="event_info">
-							<h3>Atharva Kulkarni</h3>
+							<?php echo"<h3>$ename</h3>";?>
 							<br />
-							this event is sponsored by nikhil shinde
+							<?php  echo$edes;?>
 						</div>
 						<button class="more">more</button>
-					</div>
-					<div class="event_container">
-						<div class="img_container"></div>
-						<div class="event_info"></div>
-						<button class="more">more</button>
-					</div>
-					<div class="event_container">
-						<div class="img_container"></div>
-						<div class="event_info"></div>
-						<button class="more">more</button>
-					</div>
+					</div><?php }
+
+}else{
+	echo"NO enrolled events";
+}
+?>
+					
 				</div>
 
 				<!-- ****** JOINED EVENT END ******-->
@@ -360,3 +403,9 @@ var loadFile = function(event) {
 		<script src="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.min.js"></script>
 	</body>
 </html>
+<?php }else{
+echo "<script>alert('You have logged out!');</script>";
+
+echo "<script>window.location = '../index';</script>";
+
+}?>

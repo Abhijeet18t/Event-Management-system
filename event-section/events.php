@@ -186,10 +186,11 @@ echo"event created successfully";
 			<div class="events">
 				<h4>EVENTS</h4>
 				<div class="nested_nav">
-					<a class="event_link" id="create_b">Create</a>
-					<a class="event_link" id="my_b">My Events</a>
-					<a class="event_link" id="ongoing_b">Ongoing</a>
-					<a class="event_link" id="joined_b">Enrolled</a>
+					<a class="event_link nav-item is-active" active-color="#4e63d9" id="create_b">Create</a>
+					<a class="event_link nav-item" active-color="#4e63d9" id="my_b">My Events</a>
+					<a class="event_link nav-item" active-color="#4e63d9" id="ongoing_b">Ongoing</a>
+					<a class="event_link nav-item" active-color="#4e63d9" id="joined_b">Enrolled</a>
+					<span class="nav-indicator"></span>
 				</div>
 				<form id="create_e" class="create_event" method='POST' enctype='multipart/form-data'>
 					<div class="img"><img src="calendar.svg" alt="" /></div>
@@ -355,6 +356,7 @@ var loadFile = function(event) {
 		<footer class="footer"></footer>
 
 		<script src="js/event.js"></script>
+		<script src="js/active.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.min.js"></script>
 	</body>
 </html>

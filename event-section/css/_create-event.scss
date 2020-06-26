@@ -13,7 +13,7 @@
         position: relative;
         display: inline-block;
         box-sizing: border-box;
-        width: 42%;
+        width: 45%;
         height: 100%;
         border-radius: 10px;
         display: flex;
@@ -22,15 +22,15 @@
         justify-content: center;
 
         img {
-            width: 340px;
-            height: 340px;
+            width: 350px;
+            height: 350px;
         }
     }
 
     .data {
         display: inline-block;
         box-sizing: border-box;
-        width: 57%;
+        width: 55%;
         height: 100%;
         border-radius: 10px;
         padding: 10px;
@@ -81,6 +81,7 @@
                     }
 
                     select {
+                        cursor: pointer;
                         padding-top: 10px;
                     }
 
@@ -175,6 +176,7 @@
             }
 
             input[type="checkbox"] {
+                cursor: pointer;
                 height: 25px;
                 width: 50px;
                 appearance: none;
@@ -182,7 +184,7 @@
                 position: absolute;
                 border-radius: 50px;
                 left: 21%;
-                box-shadow: inset 2px 10px 0px rgba(#000000, 0.1);
+                box-shadow: inset 0px 0px 5px rgba(#000000, 0.1);
                 transition: all 0.2s ease-in-out;
 
                 &::before {
@@ -195,12 +197,14 @@
                     left: 0;
                     border-radius: 50%;
                     background-color: #fff;
-                    border: 2px solid $royal-blue;
+                    border: 2px solid $accent-yellow;
                     transition: all 0.2s ease-in-out;
+
                 }
 
                 &:checked {
-                    background-color: $royal-blue;
+                    background-color: $accent-yellow;
+
                 }
 
                 &:checked::before {
@@ -210,28 +214,44 @@
 
             .create {
                 cursor: pointer;
+                position: relative;
                 width: 150px;
                 height: 40px;
                 border-radius: 50px;
-                border: none;
-                background-color: $blue-green;
+                background-color: #fff;
+                border: 2px solid $accent-yellow;
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 font-size: 17px;
                 color: $main-font;
-                transition: 0.2s ease;
-
-                &:hover {
-                    background-color: #fff;
-                    border: 2px solid $blue-green;
-                }
+                transition: 0.2s ease-in-out;
+                overflow: hidden;
+                z-index: 1;
 
                 &:focus {
                     outline: none;
-                    background-color: #fff;
-                    border: 2px solid $blue-green;
                 }
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    background-color: $accent-yellow;
+
+                    clip-path: circle(30% at 10% 50%);
+                    z-index: -1;
+                    transition: clip-path .3s ease-in-out;
+                }
+
+                &:hover::after,
+                &:focus::after {
+                    clip-path: circle(100%);
+
+                }
+
+
             }
         }
     }

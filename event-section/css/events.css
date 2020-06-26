@@ -21,7 +21,7 @@
   display: inline-block;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  width: 42%;
+  width: 45%;
   height: 100%;
   border-radius: 10px;
   display: -webkit-box;
@@ -40,15 +40,15 @@
 }
 
 .create_event .img img {
-  width: 340px;
-  height: 340px;
+  width: 350px;
+  height: 350px;
 }
 
 .create_event .data {
   display: inline-block;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  width: 57%;
+  width: 55%;
   height: 100%;
   border-radius: 10px;
   padding: 10px;
@@ -119,6 +119,7 @@
 }
 
 .create_event .data .box1 .sub-box1 .input select {
+  cursor: pointer;
   padding-top: 10px;
 }
 
@@ -230,6 +231,7 @@
 }
 
 .create_event .data .box3 input[type="checkbox"] {
+  cursor: pointer;
   height: 25px;
   width: 50px;
   -webkit-appearance: none;
@@ -239,8 +241,8 @@
   position: absolute;
   border-radius: 50px;
   left: 21%;
-  -webkit-box-shadow: inset 2px 10px 0px rgba(0, 0, 0, 0.1);
-          box-shadow: inset 2px 10px 0px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.1);
+          box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.1);
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
@@ -255,13 +257,13 @@
   left: 0;
   border-radius: 50%;
   background-color: #fff;
-  border: 2px solid #4e63d9;
+  border: 2px solid #ffd037;
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
 
 .create_event .data .box3 input[type="checkbox"]:checked {
-  background-color: #4e63d9;
+  background-color: #ffd037;
 }
 
 .create_event .data .box3 input[type="checkbox"]:checked::before {
@@ -270,11 +272,12 @@
 
 .create_event .data .box3 .create {
   cursor: pointer;
+  position: relative;
   width: 150px;
   height: 40px;
   border-radius: 50px;
-  border: none;
-  background-color: #81d8b0;
+  background-color: #fff;
+  border: 2px solid #ffd037;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -286,19 +289,34 @@
           align-items: center;
   font-size: 17px;
   color: #1c2559;
-  -webkit-transition: 0.2s ease;
-  transition: 0.2s ease;
-}
-
-.create_event .data .box3 .create:hover {
-  background-color: #fff;
-  border: 2px solid #81d8b0;
+  -webkit-transition: 0.2s ease-in-out;
+  transition: 0.2s ease-in-out;
+  overflow: hidden;
+  z-index: 1;
 }
 
 .create_event .data .box3 .create:focus {
   outline: none;
-  background-color: #fff;
-  border: 2px solid #81d8b0;
+}
+
+.create_event .data .box3 .create::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #ffd037;
+  -webkit-clip-path: circle(30% at 10% 50%);
+          clip-path: circle(30% at 10% 50%);
+  z-index: -1;
+  -webkit-transition: -webkit-clip-path .3s ease-in-out;
+  transition: -webkit-clip-path .3s ease-in-out;
+  transition: clip-path .3s ease-in-out;
+  transition: clip-path .3s ease-in-out, -webkit-clip-path .3s ease-in-out;
+}
+
+.create_event .data .box3 .create:hover::after, .create_event .data .box3 .create:focus::after {
+  -webkit-clip-path: circle(100%);
+          clip-path: circle(100%);
 }
 
 .my_event {
@@ -688,8 +706,9 @@ body main .events {
 }
 
 body main .events .nested_nav {
+  position: relative;
   font-family: "montserrat";
-  width: 85%;
+  width: 100%;
   height: 50px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -698,9 +717,8 @@ body main .events .nested_nav {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -708,6 +726,52 @@ body main .events .nested_nav {
 
 body main .events .nested_nav a {
   cursor: pointer;
+}
+
+body main .events .nested_nav .nav-item {
+  color: #83818c;
+  padding: 15px 20px;
+  text-decoration: none;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  margin: 0 6px;
+  z-index: 1;
+  position: relative;
+}
+
+body main .events .nested_nav .nav-item:before {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background-color: #dfe2ea;
+  border-radius: 8px 8px 0 0;
+  opacity: 0;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+body main .events .nested_nav .nav-item:not(.is-active):hover:before {
+  opacity: 1;
+  bottom: 0;
+}
+
+body main .events .nested_nav .nav-item:not(.is-active):hover {
+  color: #333;
+}
+
+body main .events .nested_nav .nav-indicator {
+  position: absolute;
+  left: 70px;
+  bottom: 0;
+  height: 4px;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  height: 5px;
+  z-index: 1;
+  border-radius: 8px 8px 0 0;
 }
 
 body main .profile {

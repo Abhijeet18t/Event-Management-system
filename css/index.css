@@ -1464,8 +1464,8 @@ main section {
           align-items: center;
 }
 
-.hero .nav a,
-.hero .nav .button {
+.hero .nav a {
+  cursor: pointer;
   font-family: "oswald";
   font-weight: 400;
   font-size: 17px;
@@ -1478,8 +1478,7 @@ main section {
   transition: all 0.2s ease-in-out;
 }
 
-.hero .nav a:hover,
-.hero .nav .button:hover {
+.hero .nav a:hover {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
 }

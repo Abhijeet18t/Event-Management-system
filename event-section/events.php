@@ -356,7 +356,7 @@ var loadFile = function(event) {
 						<div class="img_container"><?php echo"<img src=event-images/$imagename width='190px'>";?></div>
 						<div class="event_info">
 							<?php echo"<h3>$ename</h3>";?>
-							<br />
+							<br /> 
 							<?php  echo$edes;?>
 						</div>
 						<button class="more">more</button>

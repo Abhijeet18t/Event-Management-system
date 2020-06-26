@@ -37,7 +37,7 @@ body {
     .sidebar {
       position: relative;
       grid-area: sidebar;
-      background-color: $royal-blue;
+      background-image: linear-gradient(-90deg, $gradient-one, $royal-blue);
 
       .pro-circle {
         position: absolute;

@@ -1,0 +1,211 @@
+.event_requests {
+    width: 100%;
+    margin-top: 2rem;
+    display: none;
+
+    header {
+
+        h3 {
+            font-size: 1.6rem;
+            font-weight: 500;
+            margin-bottom: .3rem;
+
+        }
+
+        p {
+            font-size: 1rem;
+            color: $bluetiful;
+            margin: 5px 2px;
+        }
+    }
+
+    .event_request_wrapper {
+        width: 100%;
+
+
+        .simplebar-wrapper {
+            box-sizing: border-box;
+            width: 100%;
+            height: 400px;
+
+            .simplebar-offset {
+                padding: 1rem 0;
+            }
+        }
+
+        .simplebar-scrollbar::before {
+            background-color: $bluetiful;
+        }
+
+        .event_request_container {
+            width: 97%;
+            margin: 1rem auto 0;
+            box-sizing: border-box;
+            padding: .7rem;
+
+            header {
+
+                h4 {
+                    font-size: 1.2rem;
+                    font-weight: 500;
+                    margin-bottom: .5rem;
+
+                }
+            }
+
+            .request_container {
+                width: 95%;
+                height: 4rem;
+                margin: .8rem auto;
+                box-sizing: border-box;
+                padding: .5rem;
+                @include flex(row, space-around, center);
+                background-color: #fff;
+                border-radius: 10px;
+                box-shadow: 0px 8px 10px -10px rgba($bluetiful, .5);
+
+                .request__profile__img {
+
+                    img {
+                        height: 2.6rem;
+                        width: 2.6rem;
+                        border-radius: 10px;
+                    }
+                }
+
+                .request__profile__info {
+                    width: 40%;
+
+                    h4 {
+                        font-weight: 500;
+                        margin-bottom: .2rem;
+                        margin-left: .4rem;
+
+                    }
+
+                    p {
+                        font-weight: 500;
+                        font-size: .8rem;
+                        margin-left: .4rem;
+                        color: $info-text;
+                    }
+                }
+
+                .actions {
+                    width: 40%;
+                    @include flex(row, space-around, center);
+
+                    .accept,
+                    .decline {
+                        position: relative;
+                        cursor: pointer;
+                        width: 5rem;
+                        height: 2.5rem;
+                        background-color: $bluetiful;
+                        color: #fff;
+                        border: none;
+                        margin: 0 .2rem;
+                        border-radius: 10px;
+                        line-height: 2.4rem;
+                        text-align: center;
+                        box-shadow: 0px 8px 10px -8px rgba($bluetiful, 1);
+                    }
+
+                    .accept::after {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        content: 'accept';
+                    }
+
+                    .decline::after {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        content: 'decline';
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@media(max-width:380px) {
+    .event_requests {
+        .event_request_wrapper {
+            .event_request_container {
+                .request_container {
+
+                    .request__profile__info {
+                        width: 45%;
+                    }
+
+                    .actions {
+                        width: 35%;
+
+                        .accept,
+                        .decline {
+                            position: relative;
+                            width: 3rem;
+                            height: 3rem;
+                            border-radius: 1rem;
+
+                            &::after {
+                                display: none;
+                            }
+                        }
+
+                        .accept::before {
+
+                            position: absolute;
+                            top: 22%;
+                            left: 3%;
+                            content: url('data:image/svg+xml; utf8, <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg>');
+                            height: 3rem;
+                            width: 3rem;
+
+                        }
+
+                        .decline::before {
+
+                            position: absolute;
+                            top: 22%;
+                            left: 5%;
+                            content: url('data:image/svg+xml; utf8, <svg role="img" xmlns="http://www.w3.org/2000/svg" width="28px" height="28px" viewBox="0 0 28 28"  stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" color="white"><path d="M6.34314575 6.34314575L17.6568542 17.6568542M6.34314575 17.6568542L17.6568542 6.34314575"/> </svg>');
+                            height: 3rem;
+                            width: 3rem;
+
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@media(max-width:480px) {
+    .event_requests {
+        .event_request_wrapper {
+            .event_request_container {
+                width: 100%;
+
+                .request_container {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+
+@media(max-width:700px) {
+    .event_requests {
+        margin-top: 0;
+    }
+}

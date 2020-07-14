@@ -1,0 +1,119 @@
+.event_info_modal_container {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 11; //TOP MOST Z-INDEX
+    background-color: rgba($color: #000000, $alpha: .7);
+
+    .event_info_modal {
+        position: relative;
+        width: 80%;
+        height: 75vh;
+        max-height: 520px;
+        max-width: 350px;
+        background-color: #fff;
+        border-radius: 1rem;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+
+        &::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            border-radius: 1rem;
+            clip-path: circle(15% at 0% 0%);
+            background-color: $sunglow;
+        }
+
+        #close {
+            cursor: pointer;
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: none;
+            box-shadow: 3px 3px 6px #d1d3d6, -3px -3px 6px #ffffff;
+            background-color: #fff;
+            right: 5%;
+            top: 10px;
+            @include flex-center;
+
+            svg {
+                transform: rotate(45deg);
+            }
+        }
+
+        header {
+            width: 100%;
+            height: 60px;
+            text-align: center;
+
+            h3 {
+                color: $main-font;
+                font-size: 1.4rem;
+                font-weight: 500;
+                line-height: 60px;
+            }
+        }
+
+        .fields {
+            position: relative;
+            width: 90%;
+            margin: 2rem auto;
+
+            .event_modal_img {
+                position: absolute;
+                right: 1rem;
+
+                img {
+                    width: 7rem;
+                    height: 7rem;
+                    border-radius: .7rem;
+                    box-shadow: 0px 8px 10px -8px rgba($bluetiful, .5);
+                }
+            }
+
+            .field {
+                width: 100%;
+                margin-bottom: 1.1rem;
+                font-size: .9rem;
+
+                .head {
+                    display: block;
+                    font-weight: 500;
+
+                }
+
+                .head,
+                .head-line {
+                    font-size: 1rem;
+                    margin-bottom: .4rem;
+                    color: rgba($bluetiful, 1);
+                }
+
+
+                .unit {
+                    margin-left: 1rem;
+                }
+            }
+
+            .enroll_btn {
+                @include button;
+                margin: .4rem auto;
+                width: 45%;
+                height: 2.5rem;
+                position: relative;
+                left: 50%;
+                transform: translateX(-50%);
+
+            }
+        }
+    }
+}

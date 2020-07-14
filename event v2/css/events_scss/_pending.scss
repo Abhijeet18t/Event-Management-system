@@ -1,0 +1,131 @@
+.pending_requests {
+    width: 100%;
+    margin-top: 2rem;
+    display: none;
+
+
+    header {
+
+        h3 {
+            font-size: 1.6rem;
+            font-weight: 500;
+            margin-bottom: .3rem;
+
+        }
+
+        p {
+            font-size: 1rem;
+            color: $bluetiful;
+            margin: 5px 2px;
+        }
+    }
+
+    .pending_request_wrapper {
+        width: 100%;
+
+        .simplebar-wrapper {
+            box-sizing: border-box;
+            width: 100%;
+            height: 400px;
+
+            .simplebar-offset {
+                padding: 1rem 0;
+            }
+        }
+
+        .simplebar-scrollbar::before {
+            background-color: $bluetiful;
+        }
+
+        .pending_request_container {
+            width: 90%;
+            height: 4rem;
+            margin: 1rem auto;
+            box-sizing: border-box;
+            padding: .5rem;
+            box-sizing: border-box;
+            @include flex(row, space-around, center);
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 8px 10px -10px rgba($bluetiful, .5);
+
+            .event_display_img {
+                img {
+                    width: 3rem;
+                    height: 3rem;
+                    border-radius: 10px;
+                }
+            }
+
+            .event_info {
+                width: 45%;
+
+                h4 {
+                    font-size: 1.1rem;
+                    font-weight: 500;
+                    margin-bottom: .2rem;
+                }
+
+                p {
+                    font-weight: 500;
+                    font-size: .8rem;
+                    color: $info-text;
+                }
+            }
+
+            .pending {
+                width: 25%;
+                @include flex(row, space-around, center);
+
+                p {
+                    margin-left: .1rem;
+                    font-weight: 500;
+                    font-size: .9rem;
+                    color: $info-text;
+                }
+            }
+        }
+    }
+}
+
+@media(max-width:370px) {
+    .pending_requests {
+        .pending_request_wrapper {
+            .pending_request_container {
+                width: 100%;
+
+                .event_info {
+                    width: 50%;
+
+                    h4 {
+                        font-size: 1rem;
+                        font-weight: 500;
+                        margin-bottom: .2rem;
+                    }
+
+                    p {
+                        font-weight: 500;
+                        font-size: .8rem;
+                        color: $info-text;
+                    }
+                }
+
+                .pending {
+
+                    p {
+
+                        font-weight: 500;
+                        font-size: .8rem;
+                        color: $info-text;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media(max-width:700px) {
+    .event_requests {
+        margin-top: 0;
+    }
+}

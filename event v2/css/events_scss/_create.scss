@@ -1,0 +1,205 @@
+.container__create {
+    display: block;
+    width: 90%;
+    margin: 0px auto;
+    margin-top: 2rem;
+    position: relative;
+
+    .container__create__name {
+
+        header {
+            h3 {
+                color: $bluetiful;
+                font-size: 1.3rem;
+                font-weight: 500;
+            }
+        }
+    }
+
+    .container__create__info {
+        width: 100%;
+        margin-top: 2rem;
+        display: grid;
+        grid-template-columns: 1.5fr 1fr;
+        grid-template-rows: 8rem 8rem;
+        grid-template-areas: "inputs input_img"
+            "description description";
+
+        .container__create__info__inputs {
+            grid-area: inputs;
+
+            @include flex(column, space-around, center);
+
+            .container__create__info__inputs__input {
+                width: 100%;
+                position: relative;
+                margin: 1.5rem 0;
+
+                input,
+                select {
+                    width: 90%;
+                    height: 40px;
+                    font-size: 1rem;
+                    padding: .6rem .3rem .2rem;
+                    border: none;
+                    border-bottom: 2px solid $acc-red;
+                    background-color: #fff;
+
+                    &:focus {
+                        outline: none;
+                    }
+                }
+
+                input {
+
+                    &:focus+.label-name,
+                    &:valid+.label-name {
+                        transform: translateY(-150%);
+                    }
+
+                    &:required {
+                        box-shadow: none;
+                    }
+                }
+
+                label {
+                    pointer-events: none;
+                    font-weight: 500;
+                    position: absolute;
+                    top: 12px;
+                    left: .3rem;
+                    transition: transform .2s ease-in-out;
+                }
+
+                .event__visibility__label {
+                    position: absolute;
+                    top: -1.1rem;
+                    font-weight: 500;
+                }
+            }
+        }
+
+        .container__create__input__img {
+            grid-area: input_img;
+
+            @include flex-center;
+
+            input[type="file"] {
+                display: none;
+            }
+
+            label {
+                @include flex-center;
+                width: 8.5rem;
+                height: 8.5rem;
+                background-color: #fff;
+                border-radius: .6rem;
+                box-shadow: 0px 8px 20px -10px rgba($bluetiful, .3);
+                color: rgba($main-font, .5);
+                font-size: .8rem;
+                cursor: pointer;
+                font-weight: 500;
+            }
+        }
+
+        .container__create__event__description {
+            grid-area: description;
+
+            margin: 5rem 0;
+            position: relative;
+
+            textarea {
+                resize: none;
+                width: 100%;
+                border: none;
+                font-family: "montserrat";
+                font-size: 1rem;
+                padding: .5rem;
+                box-shadow: 0px 8px 20px -10px rgba($bluetiful, .3);
+                border-radius: 10px;
+
+                &:focus {
+                    outline: none;
+                }
+            }
+
+            .event__description__label {
+                position: absolute;
+                top: -2rem;
+                left: .3rem;
+                font-weight: 500;
+            }
+        }
+    }
+
+    .container__create__verification {
+        position: relative;
+        @include flex(row, space-between, center);
+        margin-bottom: 4rem;
+        margin-top: 6rem;
+        font-weight: 500;
+
+        input[type="checkbox"] {
+            display: flex;
+            align-items: center;
+            width: 2.8rem;
+            height: 1.4rem;
+            appearance: none;
+            position: absolute;
+            background-color: #fff;
+            border: 2px solid $acc-yellow;
+            left: 7rem;
+            border-radius: 8px;
+            box-shadow: inset 0px 0px 1px $acc-yellow;
+            transition: all .2s ease-in-out;
+            cursor: pointer;
+
+            &:focus {
+                outline: none;
+            }
+
+            label {
+                font-weight: 500;
+                left: .3rem;
+
+            }
+
+            &::after {
+                content: '';
+                position: absolute;
+                width: 1.4rem;
+                height: 1.4rem;
+                left: -0.3rem;
+                border-radius: 8px;
+                border: 2px solid $acc-yellow;
+                background-color: #fff;
+                transition: all .2s ease-in-out;
+            }
+
+            &:checked::after {
+                left: 1.4rem;
+
+            }
+
+            &:checked {
+                background-color: $acc-yellow;
+            }
+        }
+
+        .create {
+            cursor: pointer;
+            width: 7rem;
+            height: 2.8rem;
+            font-size: 1.1rem;
+            font-weight: 500;
+            background-color: $acc-yellow;
+            border-radius: 10px;
+            border: none;
+            box-shadow: 0px 10px 15px -10px $acc-yellow;
+
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+}

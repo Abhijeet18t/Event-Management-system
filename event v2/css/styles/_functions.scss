@@ -1,0 +1,50 @@
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin flex($direction, $justify, $align) {
+    display: flex;
+    flex-direction: $direction;
+    align-items: $align;
+    justify-content: $justify;
+}
+
+@mixin vertical-center {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+@mixin horizontal-center {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+@mixin center {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@mixin shadow {
+    box-shadow: 0px 8px 10px -10px rgba($bluetiful, .5);
+}
+
+@mixin button {
+    cursor: pointer;
+    border: none;
+    color: #fff;
+    background: linear-gradient(120deg,
+            $gradient-one,
+            $bluetiful,
+            $gradient-one);
+    border-radius: .6rem;
+    box-shadow: 0px 8px 10px -8px rgba($bluetiful, 1);
+    transition: all 0.2s ease-in-out;
+    background-size: 200%;
+
+    &:hover {
+        background-position: right;
+    }
+}

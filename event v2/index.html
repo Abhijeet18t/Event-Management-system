@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Nunito:wght@400;600;800&family=Poppins:wght@400;500&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://unpkg.com/simplebar@5.0.7/dist/simplebar.css"
+		/>
+		<link rel="stylesheet" href="css/index.css" />
+		<title>Document</title>
+	</head>
+	<body>
+		<main class="wrapper">
+			<!--********* NAVIGATION START ********-->
+			<div class="nav">
+				<div class="nav__desktop">
+					<h3 class="nav__desktop__logo">BRAND.</h3>
+					<div class="nav__desktop__profile">
+						<img
+							class="nav__desktop__profile__img"
+							src="images/profile.jpg"
+							alt=""
+						/>
+						<div class="nav__desktop__profile__info">
+							<h4>Atharva Kulkarni</h4>
+							<p>Web Developer</p>
+						</div>
+					</div>
+				</div>
+				<img src="images/profile.jpg" class="nav__mobile" alt="" />
+				<input
+					type="search"
+					placeholder="Search"
+					class="search nav__mobile"
+				/>
+				<input type="checkbox" id="check" class="nav__mobile" />
+				<label for="check" class="nav__mobile">
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						width="24"
+						height="24"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="#fff"
+						stroke-width="2"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						class="feather feather-menu"
+					>
+						<line x1="3" y1="12" x2="21" y2="12"></line>
+						<line x1="3" y1="6" x2="21" y2="6"></line>
+						<line x1="3" y1="18" x2="21" y2="18"></line>
+					</svg>
+				</label>
+				<div class="nav__links">
+					<a href="#" class="nav__links__link home">Dashboard</a>
+					<a href="#" class="active nav__links__link event">Events</a>
+					<a href="#" class="nav__links__link department"
+						>Departments</a
+					>
+					<a href="#" class="nav__links__link club"> Clubs</a>
+					<a href="#" class="nav__links__link library">Library</a>
+					<a href="#" class="nav__links__link settings">Settings</a>
+					<a href="#" class="nav__links__link help">Help & Support</a>
+					<a href="#" class="nav__links__link logout">Logout</a>
+				</div>
+			</div>
+			<!--********* NAVIGATION END ********-->
+
+			<!--******** CONTAINER ONE ********-->
+			<div class="container">
+				<div class="active__tab__bg">
+					<section class="active__tab">
+						<header>
+							<h3>Events</h3>
+							<p>Ready to join events</p>
+						</header>
+						<nav class="active__tab__nav">
+							<a
+								class="active active__tab__nav_link nav-item is-active"
+								active-color="#F65164"
+								font-color="#2D364F"
+								id="create_btn"
+								>Create</a
+							>
+							<a
+								class="active__tab__nav_link nav-item"
+								active-color="##F65164"
+								font-color="#2D364F"
+								id="myevent_btn"
+								>My Events</a
+							>
+							<a
+								class="active__tab__nav_link nav-item"
+								active-color="#F65164"
+								font-color="#2D364F"
+								id="ongoing_btn"
+								>Ongoing</a
+							>
+							<a
+								class="active__tab__nav_link nav-item"
+								active-color="#F65164"
+								font-color="#2D364F"
+								id="enrolled_btn"
+								>Enroll</a
+							>
+							<span class="nav-indicator"></span>
+						</nav>
+					</section>
+
+					<!-- CREATE EVENT START -->
+					<section id="create" class="container__create">
+						<div class="container__create__name">
+							<header>
+								<h3>New Event</h3>
+							</header>
+						</div>
+						<div class="container__create__info">
+							<div class="container__create__info__inputs">
+								<div
+									class="container__create__info__inputs__input"
+								>
+									<input
+										id="event_name"
+										type="text"
+										required
+									/>
+									<label for="event_name" class="label-name"
+										>Name</label
+									>
+								</div>
+								<div
+									class="container__create__info__inputs__input"
+								>
+									<select name="" id="event_visibility">
+										<option value="">All</option>
+										<option value="">Teachers</option>
+										<option value="">Students</option>
+									</select>
+									<label
+										class="event__visibility__label"
+										for="event_visibility"
+										>Visibility</label
+									>
+								</div>
+							</div>
+							<div class="container__create__input__img">
+								<input id="input_event_img" type="file" />
+								<label for="input_event_img"
+									>Upload Image</label
+								>
+							</div>
+							<div class="container__create__event__description">
+								<textarea
+									id="event_description"
+									cols="30"
+									rows="5"
+									placeholder="Describe your event"
+								></textarea>
+								<label
+									for="event_description"
+									class="event__description__label"
+									>Description</label
+								>
+							</div>
+						</div>
+						<div class="container__create__verification">
+							<input type="checkbox" id="verification" />
+							<label for="verification">Verification</label>
+							<button class="create">
+								Create
+							</button>
+						</div>
+					</section>
+
+					<!-- CREATE EVENT END -->
+
+					<!-- MY EVENT START -->
+					<section id="myevent" class="container__myevent">
+						<div class="container__myevent__name">
+							<header>
+								<h3>Your Events</h3>
+							</header>
+						</div>
+						<div class="container__myevent__wrapper" data-simplebar>
+							<div class="container__myevent__wrapper__event">
+								<div class="wrapper__event__display__img">
+									<img src="images/profile.jpg" alt="" />
+								</div>
+								<div class="wrapper__event__display__info">
+									<h4>JS Workshop</h4>
+									<p>
+										Lorem ipsum dolor sit amet consectetur
+										adipisicing elit. Vel eius architecto
+										necessitatibus.
+									</p>
+								</div>
+								<div class="wrapper__event__display__time">
+									<div>
+										<h4>12 Aug</h4>
+										<h5>12:30pm</h5>
+									</div>
+									<button id="view">view</button>
+								</div>
+							</div>
+							<div class="container__myevent__wrapper__event">
+								<div class="wrapper__event__display__img">
+									<img src="images/profile.jpg" alt="" />
+								</div>
+								<div class="wrapper__event__display__info">
+									<h4>JS Workshop</h4>
+									<p>
+										Lorem ipsum dolor sit amet consectetur
+										adipisicing elit. Vel eius architecto
+										necessitatibus.
+									</p>
+								</div>
+								<div class="wrapper__event__display__time">
+									<div>
+										<h4>12 Aug</h4>
+										<h5>12:30pm</h5>
+									</div>
+									<button>view</button>
+								</div>
+							</div>
+						</div>
+					</section>
+					<!-- MY EVENT END -->
+
+					<!-- ONGOING EVENT START -->
+					<section
+						id="ongoing"
+						class="container__ongoing"
+						data-simplebar
+					>
+						<div class="container__ongoing__name">
+							<header>
+								<h3>Events in your college</h3>
+							</header>
+						</div>
+						<div class="container__ongoing__wrapper" data-simplebar>
+							<div class="container__ongoing__wrapper__event">
+								<div class="wrapper__event__display__img">
+									<img src="images/profile.jpg" alt="" />
+								</div>
+								<div class="wrapper__event__display__info">
+									<h4>JS Workshop</h4>
+									<p>
+										Lorem ipsum dolor sit amet consectetur
+										adipisicing elit. Vel eius architecto
+										necessitatibus.
+									</p>
+								</div>
+								<div class="wrapper__event__display__time">
+									<div>
+										<h4>12 Aug</h4>
+										<h5>12:30pm</h5>
+									</div>
+									<button>view</button>
+								</div>
+							</div>
+							<div class="container__ongoing__wrapper__event">
+								<div class="wrapper__event__display__img">
+									<img src="images/profile.jpg" alt="" />
+								</div>
+								<div class="wrapper__event__display__info">
+									<h4>JS Workshop</h4>
+									<p>
+										Lorem ipsum dolor sit amet consectetur
+										adipisicing elit. Vel eius architecto
+										necessitatibus.
+									</p>
+								</div>
+								<div class="wrapper__event__display__time">
+									<div>
+										<h4>12 Aug</h4>
+										<h5>12:30pm</h5>
+									</div>
+									<button>view</button>
+								</div>
+							</div>
+						</div>
+					</section>
+					<!-- ONGOING EVENT END -->
+
+					<!-- ENROLLED EVENT START -->
+					<section id="enrolled" class="container__enrolled">
+						<div class="container__enrolled__name">
+							<header>
+								<h3>You have participated in..</h3>
+							</header>
+						</div>
+						<div
+							class="container__enrolled__wrapper"
+							data-simplebar
+						>
+							<div class="container__enrolled__wrapper__event">
+								<div class="wrapper__event__display__img">
+									<img src="images/profile.jpg" alt="" />
+								</div>
+								<div class="wrapper__event__display__info">
+									<h4>JS Workshop</h4>
+									<p>
+										Lorem ipsum dolor sit amet consectetur
+										adipisicing elit. Vel eius architecto
+										necessitatibus.
+									</p>
+								</div>
+								<div class="wrapper__event__display__time">
+									<div>
+										<h4>12 Aug</h4>
+										<h5>12:30pm</h5>
+									</div>
+									<button>view</button>
+								</div>
+							</div>
+							<div class="container__enrolled__wrapper__event">
+								<div class="wrapper__event__display__img">
+									<img src="images/profile.jpg" alt="" />
+								</div>
+								<div class="wrapper__event__display__info">
+									<h4>JS Workshop</h4>
+									<p>
+										Lorem ipsum dolor sit amet consectetur
+										adipisicing elit. Vel eius architecto
+										necessitatibus.
+									</p>
+								</div>
+								<div class="wrapper__event__display__time">
+									<div>
+										<h4>12 Aug</h4>
+										<h5>12:30pm</h5>
+									</div>
+									<button>view</button>
+								</div>
+							</div>
+						</div>
+					</section>
+					<!-- ENROLLED EVENT END -->
+				</div>
+			</div>
+
+			<!--EVENT INFO MODAL START-->
+			<div id="event_modal" class="event_info_modal_container">
+				<div class="event_info_modal">
+					<button id="close">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="24"
+							height="24"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="2"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							class="feather feather-plus"
+						>
+							<line x1="12" y1="5" x2="12" y2="19"></line>
+							<line x1="5" y1="12" x2="19" y2="12"></line>
+						</svg>
+					</button>
+					<header class="event_title">
+						<h3>Event Name</h3>
+					</header>
+					<div class="fields">
+						<div class="event_modal_img">
+							<img src="images/profile.jpg" alt="" />
+						</div>
+						<div class="field">
+							<span class="head">Created By</span> Abhijeet Takale
+						</div>
+						<div class="field">
+							<span class="head">Visibility</span> Student
+						</div>
+						<div class="field">
+							<span class="head">Verification</span> On
+						</div>
+						<div class="field">
+							<span class="head">Description</span> Lorem ipsum
+							dolor sit amet consectetur adipisicing elit. Eos
+							accusamus necessitatibus consequatur molestias animi
+							laboriosam dicta.
+						</div>
+						<div class="field">
+							<span class="head-line">Capacity</span>
+							<span class="unit">150</span>
+						</div>
+						<div class="field">
+							<span class="head-line">Enrolled</span>
+							<span class="unit">79</span>
+						</div>
+						<button class="enroll_btn">Enroll</button>
+					</div>
+				</div>
+			</div>
+			<!--EVENT INFO MODAL END-->
+
+			<!--******** CONTAINER ONE END********-->
+
+			<!--******** CONTAINER TWO ********-->
+			<input type="checkbox" id="sidebar" class="sidebar__puller" />
+			<label for="sidebar" class="sidebar__label"> </label>
+			<div class="container2">
+				<div class="active__tab__sidebar">
+					<div class="row1">
+						<input
+							type="search"
+							placeholder="Search"
+							class="search"
+						/>
+						<button class="notification">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								width="22"
+								height="22"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="2"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								class="feather feather-bell"
+							>
+								<path
+									d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"
+								></path>
+								<path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+							</svg>
+						</button>
+					</div>
+					<!--UPCOMING EVENTS SECTION START-->
+					<div id="upcoming" class="upcoming_events">
+						<header class="upcoming_events_title">
+							<h3>Upcoming Events</h3>
+							<p>checkout these events...</p>
+						</header>
+						<div
+							class="container__upcoming__wrapper"
+							data-simplebar
+						>
+							<div class="container__upcoming__wrapper__event">
+								<div class="wrapper__event__display__img">
+									<img src="images/profile.jpg" alt="" />
+								</div>
+								<div class="wrapper__event__display__info">
+									<h4>JS Workshop</h4>
+									<p>
+										Lorem ipsum dolor sit amet consectetur
+										adipisicing elit. Vel eius architecto
+										necessitatibus.
+									</p>
+								</div>
+								<div class="wrapper__event__display__time">
+									<div>
+										<h4>12 Aug</h4>
+										<h5>12:30pm</h5>
+									</div>
+									<button class="enroll">Enroll</button>
+								</div>
+							</div>
+							<div class="container__upcoming__wrapper__event">
+								<div class="wrapper__event__display__img">
+									<img src="images/profile.jpg" alt="" />
+								</div>
+								<div class="wrapper__event__display__info">
+									<h4>JS Workshop</h4>
+									<p>
+										Lorem ipsum dolor sit amet consectetur
+										adipisicing elit. Vel eius architecto
+										necessitatibus.
+									</p>
+								</div>
+								<div class="wrapper__event__display__time">
+									<div>
+										<h4>12 Aug</h4>
+										<h5>12:30pm</h5>
+									</div>
+									<button class="enroll">Enrolled</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!--UPCOMING EVENTS SECTION END-->
+					<!--EVENT REQUESTS SECTION FOR MYEVENTS START-->
+					<div id="eve-req" class="event_requests">
+						<header class="event_request_title">
+							<h3>Event Requests</h3>
+							<p>they want to join your event</p>
+						</header>
+						<div class="event_request_wrapper" data-simplebar>
+							<div class="event_request_container">
+								<header>
+									<h4>JS Workshop</h4>
+								</header>
+								<div class="request_container">
+									<div class="request__profile__img">
+										<img src="images/profile.jpg" alt="" />
+									</div>
+									<div class="request__profile__info">
+										<h4>Abhijeet Takale</h4>
+										<p>
+											student
+										</p>
+									</div>
+									<div class="actions">
+										<button class="accept"></button>
+										<button class="decline"></button>
+									</div>
+								</div>
+								<div class="request_container">
+									<div class="request__profile__img">
+										<img src="images/profile.jpg" alt="" />
+									</div>
+									<div class="request__profile__info">
+										<h4>Abhijeet Takale</h4>
+										<p>
+											student
+										</p>
+									</div>
+									<div class="actions">
+										<button class="accept"></button>
+										<button class="decline"></button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!--EVENT REQUESTS SECTION FOR MYEVENTS END-->
+					<!--PENDING REQUEST SECTION FOR XX START-->
+					<div id="pending" class="pending_requests">
+						<header class="pending_request_title">
+							<h3>Pending Requests</h3>
+							<p>waiting for approval....</p>
+						</header>
+						<div class="pending_request_wrapper" data-simplebar>
+							<div class="pending_request_container">
+								<div class="event_display_img">
+									<img src="images/profile.jpg" alt="" />
+								</div>
+								<div class="event_info">
+									<h4>JS Workshop</h4>
+									<p>by Abhijeet Takale</p>
+								</div>
+								<div class="pending">
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										width="24"
+										height="24"
+										viewBox="0 0 24 24"
+										fill="none"
+										stroke="#a9a9ac"
+										stroke-width="2"
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										class="feather feather-clock"
+									>
+										<circle cx="12" cy="12" r="10"></circle>
+										<polyline
+											points="12 6 12 12 16 14"
+										></polyline>
+									</svg>
+									<p>pending</p>
+								</div>
+							</div>
+							<div class="pending_request_container">
+								<div class="event_display_img">
+									<img src="images/profile.jpg" alt="" />
+								</div>
+								<div class="event_info">
+									<h4>Esports</h4>
+									<p>by Sushant Shivalkar</p>
+								</div>
+								<div class="pending">
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										width="24"
+										height="24"
+										viewBox="0 0 24 24"
+										fill="none"
+										stroke="#a9a9ac"
+										stroke-width="2"
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										class="feather feather-clock"
+									>
+										<circle cx="12" cy="12" r="10"></circle>
+										<polyline
+											points="12 6 12 12 16 14"
+										></polyline>
+									</svg>
+									<p>pending</p>
+								</div>
+							</div>
+							<div class="pending_request_container">
+								<div class="event_display_img">
+									<img src="images/profile.jpg" alt="" />
+								</div>
+								<div class="event_info">
+									<h4>Hip Hop Workshop</h4>
+									<p>by Atharva Kulkarni</p>
+								</div>
+								<div class="pending">
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										width="24"
+										height="24"
+										viewBox="0 0 24 24"
+										fill="none"
+										stroke="#a9a9ac"
+										stroke-width="2"
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										class="feather feather-clock"
+									>
+										<circle cx="12" cy="12" r="10"></circle>
+										<polyline
+											points="12 6 12 12 16 14"
+										></polyline>
+									</svg>
+									<p>pending</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!--PENDING REQUEST SECTION FOR XX END-->
+				</div>
+			</div>
+			<!--******** CONTAINER TWO ********-->
+		</main>
+		<script src="js/events.js"></script>
+		<script src="js/active.js"></script>
+		<script src="https://unpkg.com/simplebar@5.0.7/dist/simplebar.min.js"></script>
+	</body>
+</html>

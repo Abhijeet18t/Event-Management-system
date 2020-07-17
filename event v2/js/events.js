@@ -18,12 +18,6 @@ const EventReq = document.getElementById("eve-req")
 const PendingReq = document.getElementById("pending")
 //EVENT SIDEBAR CONTAINERS
 
-//VIEW EVENT MODAL
-const ViewBtn = document.getElementById("view")
-const EventModal = document.getElementById("event_modal")
-const CloseModal = document.getElementById("close")
-//VIEW EVENT MODAL
-
 //EVENT NAV FUNCTIONS
 CreateBtn.onclick = function () {
 	CreateContainer.style.display = "block"
@@ -70,12 +64,3 @@ EnrolledBtn.onclick = function () {
 }
 //EVENT NAV FUNCTIONS
 
-//VIEW EVENT MODAL FUNCTION
-ViewBtn.onclick = function () {
-	EventModal.style.display = "block"
-}
-
-CloseModal.onclick = function () {
-	EventModal.style.display = "none"
-}
-//VIEW EVENT MODAL FUNCTION

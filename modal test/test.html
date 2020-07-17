@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="main-div" style="display: none;">
+        hi this is me
+        <button id="close" >close</button>
+    </div>
+    <button id="one">click</button>
+  
+    <script>
+        const Main=document.getElementById("main-div")
+        const Btn1=document.getElementById("one")
+        const Close = document.getElementById("close")
+
+        Btn1.onclick=function(){
+            Main.style.display='block';
+        }
+
+        Close.onclick=function(){
+            Main.innerHTML=''
+        }
+        
+    </script>
+</body>
+</html>

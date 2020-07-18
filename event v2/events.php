@@ -39,13 +39,13 @@ function eventname(name) {
 //details ajax
 function details(ename) {
     if (ename.length == 0) {
-        document.getElementById("event_data").innerHTML = "";
+        document.getElementById("fieldinfo").innerHTML = "";
         return;
     } else {
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("event_data").innerHTML = this.responseText;
+                document.getElementById("fieldinfo").innerHTML = this.responseText;
             }
         };
         xmlhttp.open("GET", "detailsajax.php?ename=" + ename, true);
@@ -56,8 +56,40 @@ function details(ename) {
 </script>
 	</head>
 	<body>
+	<?php
+	 $user_imgext=$_SESSION['user_imgext'];
+	$username=$_SESSION['username'];
+	$college=$_SESSION['college'];
+	
+?>
 		<!--EVENT INFO MODAL START-->
-	<div id="event_data" class="dynamic_event_container"></div>
+		<div id='event_modal' class='event_info_modal_container' >
+ <div class='event_info_modal'>
+<button id='close' >
+	<svg
+		xmlns='http://www.w3.org/2000/svg'
+		width='24'
+		height='24'
+		viewBox='0 0 24 24'
+		fill='none'
+		stroke='currentColor'
+		stroke-width='2'
+		stroke-linecap='round'
+		stroke-linejoin='round'
+		class='feather feather-plus'
+	>
+		<line x1='12' y1='5' x2='12' y2='19'></line>
+		<line x1='5' y1='12' x2='19' y2='12'></line>
+	</svg>
+</button>
+<header class='event_title'>
+	<h3>Event Name</h3>
+</header>
+<div class='fields' id='fieldinfo'>
+</div>
+</div>
+</div>
+
 		<!--EVENT INFO MODAL END-->
 		<main class="wrapper">
 			<!--********* NAVIGATION START ********-->
@@ -65,18 +97,18 @@ function details(ename) {
 				<div class="nav__desktop">
 					<h3 class="nav__desktop__logo">BRAND.</h3>
 					<div class="nav__desktop__profile">
-						<img
-							class="nav__desktop__profile__img"
-							src="images/profile.jpg"
-							alt=""
-						/>
+						<?php echo"<img
+							class='nav__desktop__profile__img'
+							src='../profile-images/$username.$user_imgext'
+							alt=''
+						/>";?>
 						<div class="nav__desktop__profile__info">
 							<h4>Atharva Kulkarni</h4>
 							<p>Web Developer</p>
 						</div>
 					</div>
 				</div>
-				<img src="images/profile.jpg" class="nav__mobile" alt="" />
+				<?php echo"<img src='../profile-images/$username.$user_imgext' class='nav__mobile' alt='' />"?>
 				<input
 					type="search"
 					placeholder="Search"
@@ -111,7 +143,7 @@ function details(ename) {
 					<a href="#" class="nav__links__link library">Library</a>
 					<a href="#" class="nav__links__link settings">Settings</a>
 					<a href="#" class="nav__links__link help">Help & Support</a>
-					<a href="#" class="nav__links__link logout">Logout</a>
+					<a href="logout.php" class="nav__links__link logout">Logout</a>
 				</div>
 			</div>
 			<!--********* NAVIGATION END ********-->
@@ -335,7 +367,7 @@ var loadFile = function(event) {
 										<h5>12:30pm</h5>
 									</div>
 									
-									<button type='button'  value='<?php echo$ename;?>'  onclick="details(this.value)">view</button>
+									<button type='button'  value='<?php echo$ename;?>'  onclick="details(this.value);display();">view</button>
 									
 								</div>
 							</div>
@@ -410,7 +442,7 @@ var loadFile = function(event) {
 										<h4>12 Aug</h4>
 										<h5>12:30pm</h5>
 									</div>
-									<button>view</button>
+									<button type='button' value='<?php echo$ename;?>' onclick="details(this.value);display();">view</button>
 								</div>
 							</div>
 							<?php
@@ -463,7 +495,7 @@ var loadFile = function(event) {
 										<h4>12 Aug</h4>
 										<h5>12:30pm</h5>
 									</div>
-									<button>view</button>
+									<button type='button' value='<?php echo$ename;?>' onclick="details(this.value);display();" > view</button>
 								</div>
 							</div>
 							<?php
@@ -708,6 +740,18 @@ var loadFile = function(event) {
 		<script src="js/events.js"></script>
 		<script src="js/active.js"></script>
 		<script src="https://unpkg.com/simplebar@5.0.7/dist/simplebar.min.js"></script>
+		<script>
+		const Modal = document.getElementById("event_modal")
+		const Close = document.getElementById("close")
+
+		function display(){
+			Modal.style.display="block"
+		}
+
+		Close.onclick = function(){
+			Modal.style.display="none"
+		}
+		</script>
 	</body>
 </html>
 <?php }else{

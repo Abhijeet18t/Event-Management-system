@@ -14,7 +14,7 @@
      }
     $sql="INSERT INTO `eventusers`(`username`, `college`, `ename`,`creator`, `vstat`) VALUES ('$username','$college','$eventname','$creator','$vstat');";
     mysqli_query($conn,$sql);
-    header("Location:events.php");
+    
 }
 
  //events list                                                                    

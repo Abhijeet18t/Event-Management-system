@@ -103,12 +103,12 @@ function details(ename) {
 							alt=''
 						/>";?>
 						<div class="nav__desktop__profile__info">
-							<h4>Atharva Kulkarni</h4>
+							<h4><?php echo$username ?></h4>
 							<p>Web Developer</p>
 						</div>
 					</div>
 				</div>
-				<?php echo"<img src='../profile-images/$username.$user_imgext' class='nav__mobile' alt='' />"?>
+				<?php echo"<img src='../profile-images/$username.$user_imgext ' class='nav__mobile' alt='' />"?>
 				<input
 					type="search"
 					placeholder="Search"
